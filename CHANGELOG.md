@@ -1,3 +1,9 @@
+## 7.1.22 — Platform 1.1.2 Studio manifest alignment (2026-09-06)
+
+- Zdrojový Studio manifest byl srovnán s reálným runtime/consumer stavem: Platform 1.1.2 a range `>=1.1.2 <2.0.0`.
+- Source-repository fallback AI Studia tak již nemůže aplikaci ověřit se zastaralou deklarací Platformy 1.0.0.
+- Produkční suite-session cleanup ani storage ownership se nemění.
+
 ## 7.1.21 — GHRAB Platform 1.1.2 suite-session migration candidate (2026-09-05)
 
 - Přesná vendor vrstva GHRAB Platform 1.1.2 z referenčního AI Studia 0.21.40.

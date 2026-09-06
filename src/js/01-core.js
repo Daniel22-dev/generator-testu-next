@@ -25,11 +25,11 @@ const STEP_LABELS = ["Základní info","Cvičení","Čas & forma","Doplňky"];
 //   pole a smaž nejstarší (poslední) položku, ať jich zůstane 10. Zobrazení je navíc
 //   pojištěné v showReleaseInfo (slice 0–10), takže víc než 10 se nikdy neukáže.
 const RELEASE = Object.freeze({
-  version: '7.1.21',
+  version: '7.1.22',
   date:    '2026-09-05',
   status:  'production-serverless',
   changes: [
-    'MIGRACE GHRAB PLATFORM 1.1.2 (7.1.21): Generátor je napojen na suite-level lifecycle ghrab-suite-session-v1. Otevřená, zavřená i stale/BFCache instance uklízí pouze Generator-owned obsah, target-scoped handoff a in-memory AI/test/roster data; persistence je po suite end uzamčena, cleanup je fail-closed a acknowledgement vzniká až po ověřeném úklidu. Kandidát je součást ecosystem release wave a není samostatně release-approved.',
+    'MIGRACE GHRAB PLATFORM 1.1.2 (7.1.22): Generátor je napojen na suite-level lifecycle ghrab-suite-session-v1. Otevřená, zavřená i stale/BFCache instance uklízí pouze Generator-owned obsah, target-scoped handoff a in-memory AI/test/roster data; persistence je po suite end uzamčena, cleanup je fail-closed a acknowledgement vzniká až po ověřeném úklidu. Kandidát je součást ecosystem release wave a není samostatně release-approved.',
     'OPRAVNÝ KANDIDÁT GARP 2.3 PO DRUHÉM CLAUDE KOLE (7.1.20): opraven release-blocking terminátor inline skriptu ve verifieru, sjednocen importní kontrakt manifestů, standardní testovací řetěz nyní používá plný build a povinný headless krok, document.write baseline je zamčena na nule a GARP/PC-01 regrese byly dále zpřísněny. Tento post-second-review build není release-approved a před nasazením vyžaduje výslovně zahájenou novou nezávislou kontrolu.',
     'BEZPEČNOSTNÍ KANDIDÁT GARP 2.3 K1 (7.1.18): sjednocena AI trust boundary pro všechny vstupy a přílohy, diferenciace už neposílá skutečné identity do AI, self-test běží v opaque iframe přes omezené RPC, návratový odkaz AI Studia je omezen na nakonfigurovaný origin/cestu a sdílené zařízení má skutečné scoped ukončení práce s mazáním místních dat. Přidán GARP 2.3 regresní harness s negativními kontrolami.',
     'INTEGRAČNÍ HOTFIX AI STUDIA (7.1.18): deployment Generátoru používá stejnou podepsanou přístupovou konfiguraci jako aktuální AI Studio. Správcovské oprávnění se proto již nezamítne kvůli rozdílné verzi bezpečnostního bundle.',

@@ -2,7 +2,7 @@
   "schema": "ghrab-release-acceptance-v1",
   "stage": "P5",
   "appId": "generator",
-  "appVersion": "7.1.21",
+  "appVersion": "7.1.22",
   "releaseStatus": "platform-1.1.2-suite-session-ecosystem-wave-candidate-pending-independent-review",
   "primaryRuntime": {
     "mode": "standalone-github-pages",

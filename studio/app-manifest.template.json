@@ -49,7 +49,7 @@
     "materialSchema": "ghrab-material-v1",
     "studioBridge": "2.0",
     "platformContract": "ghrab-platform-v1",
-    "platformRange": ">=1.0.0 <2.0.0"
+    "platformRange": ">=1.1.2 <2.0.0"
   },
   "publishedAt": "__BUILD_TIME__",
   "aiCore": {
@@ -75,8 +75,8 @@
   "platform": {
     "schema": "ghrab-platform-app-integration-v1",
     "contract": "ghrab-platform-v1",
-    "requiredPlatformRange": ">=1.0.0 <2.0.0",
-    "platformVersion": "1.0.0",
+    "requiredPlatformRange": ">=1.1.2 <2.0.0",
+    "platformVersion": "1.1.2",
     "brandVersion": "1.0.0",
     "themeContract": 1,
     "swContract": 1,
