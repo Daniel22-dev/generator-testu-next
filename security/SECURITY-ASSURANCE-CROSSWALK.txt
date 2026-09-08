@@ -1,0 +1,32 @@
+GARP 2.5.1 – SECURITY ASSURANCE CROSSWALK
+Application: generator 7.1.24
+Pinned references: GARP 33-REFERENCES-OFFICIAL-PINNED.txt, frozen 2026-09-06
+
+External reference | GARP family | Relevance | Local evidence/status
+OWASP ASVS 5.0.0 | SH-APP / SH-RUN / SH-DET | auth/session, validation, browser/output security, logging | threat model, CSP/header contract, GARP23/P5 checks; current full browser/served validation NOT TESTED
+NIST SP 800-218 SSDF 1.1 | SH-SC / SH-APP | source control, dependencies, vulnerability handling, build/release evidence | pinned lockfile/actions, SBOM, GARP release tooling; branch protection/SCA live service NOT TESTED
+NIST SP 800-218A | SH-AI | GenAI secure-development practices | explicit AI operation registry, trust fencing, privacy preflight, AIR inherited evidence; live model behavior not rerun
+SLSA v1.2 reference model | SH-SC / provenance | build provenance and source/build linkage | GARP create/verify provenance tooling prepared; no “SLSA level” claim; actual current clean build provenance NOT TESTED
+CycloneDX 1.7 | SH-SC SBOM | machine-readable dependency inventory | security/sbom/generator-testu-7.1.24.cdx.json; 113/113 named components, 113/113 unique purl, 113/113 lockfile integrity hashes; quality + drift check PASS
+OWASP GenAI LLM Top 10 2026 | SH-AI/AIR | LLM01-10 | mapping below
+OWASP Agentic Top 10 2026 / ACS 2026 | SH-AG | limited provider-side tool capability | AGENTIC=PARTIAL; teacher-opt-in Gemini url_context is the only model-usable provider tool; no local tool loop, writes or side effects
+
+OWASP GenAI LLM Top 10 2026 local mapping
+LLM01 Prompt Injection -> AIR trust boundaries, untrusted source/model-output fences, GARP23 corpus; structural PASS, live behavior NOT TESTED this round.
+LLM02 Sensitive Information Disclosure -> D3 classification, pseudonymization, data notice, egress policy; organizational provider evidence NOT TESTED.
+LLM03 Excessive Agency -> AGENTIC=PARTIAL; teacher can enable a single fixed provider-side url_context tool. No arbitrary tool selection, local agent loop, writes or application side effects.
+LLM04 Supply Chain -> exact lockfile, pinned GitHub Actions, vendor hashes, SBOM, GARP RI/provenance tooling; SCA/live provenance incomplete.
+LLM05 Data and Model Poisoning -> uploaded/external content is untrusted context; no model training/fine-tuning pipeline in app; provider-side training policy outside source evidence.
+LLM06 Unbounded Consumption -> AI resource budget, token/request/call/time caps; school-server rate enforcement NOT TESTED.
+LLM07 Misinformation -> teacher remains decision-maker; answer verification/enrichment paths exist; generated content must not be treated as authoritative without review.
+LLM08 Hidden Context Exposure -> system/trust instructions are not secrets; secret/provider keys are separated from prompts by credential provider; behavior still requires model tests when boundary changes.
+LLM09 Vector and Embedding Weaknesses -> N/A: application has no vector DB/RAG embedding store.
+LLM10 Improper Output Handling -> schema validation, escaping/sanitization, Acorn parser, XSS tests. With url_context enabled Gemini cannot use responseMimeType=application/json, so JSON parse/repair plus strict post-parse schema validation is the compensating boundary; provider-side tool behavior remains behaviorally NOT TESTED without a live model.
+
+CLAIM RULE
+This crosswalk is an audit navigation map only. It is not certification, an ASVS conformance claim, a SLSA level claim, or proof of compliance with an external standard.
+
+GHRAB ecosystem-specific assurance
+GHRAB GH-01 vendored consistency | SH-SC | shared platform/schema/logo byte identity | internal vendored snapshot -> public/dist/school-server copies: PASS when built; cross-repository comparison to AI-Studio-GHRAB canonical source remains NOT TESTED unless that repository is supplied.
+Service Worker two-class policy | GH-02 / SH-RUN | freshness without losing offline privacy controls | auth/revocation/integrity/runtime-config remain network-only/no-store; suite-session cleanup and platform support use network-first/no-store + install-cache fallback; registered-browser SIM-07 remains NOT TESTED.
+AI assurance scope | SH-AI / GH-10 | inherited AIR evidence invalidation boundary | 16 explicit tracked files + automatic .js/.mjs discovery under src/ and public/ for helper-boundary tokens and direct Gemini transport tokens; new untracked boundary source causes FAIL.

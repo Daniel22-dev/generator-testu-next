@@ -1,0 +1,1440 @@
+ROUND-3 TARGETED STATIC/STRUCTURAL RUN
+NOTE: local node_modules contains ONLY a temporary symlink to preinstalled Acorn 8.15.0 for CSP/build parsing; exact npm ci unavailable (EAI_AGAIN).
+
+=== syntax-leak ===
+EXIT=0
+=== syntax-vendored ===
+EXIT=0
+=== syntax-fingerprint ===
+EXIT=0
+=== syntax-selftest ===
+EXIT=0
+=== versions ===
+✅  Verze sedi napric projektem: 7.1.23
+EXIT=0
+=== studio-manifest ===
+✅ Studio manifest template: generator 7.1.23, cache ghrab-generator-v7.1.23
+EXIT=0
+=== qa-manifest ===
+✅  QA manifest odpovídá GHRAB-QA-1.0.2 a verzi 7.1.23.
+EXIT=0
+=== lockfile-registry ===
+✅  Lockfile používá veřejný npm registr (113 resolved URL, 0 interních).
+EXIT=0
+=== action-pins ===
+✅  Externí GitHub Actions jsou připnuté plným commit SHA (18 použití).
+EXIT=0
+=== production-readiness ===
+✅  Produkcni invariants jsou splneny.
+EXIT=0
+=== csp-surrogate ===
+✅  Aktivní CSP je synchronní, bez unsafe-eval; Acorn je lazy a runtime neobsahuje eval/new Function.
+EXIT=0
+=== source-structure ===
+✅  Zdrojova struktura OK: 11 split modulu, puvodni nazvy pouze jako migracni tombstones.
+EXIT=0
+=== sensitive-data ===
+✅  Obecná kontrola citlivých údajů prošla (58 veřejných zdrojových souborů).
+EXIT=0
+=== session-lifecycle ===
+{
+  "schema": "ghrab-generator-suite-session-test-v1",
+  "platformVersion": "1.1.2",
+  "syntheticDataOnly": true,
+  "checks": [
+    {
+      "ok": true,
+      "name": "Platform 1.1.2 exact vendor SHA-256",
+      "detail": "199d03d9dc9263a9e74ed1f1102df0324f3b63e78704f1c70aeacec5feec530c"
+    },
+    {
+      "ok": true,
+      "name": "Open-child ack waits for runtime cleanup",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Open-child clears synthetic Generator canaries",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Open-child preserves other child namespace",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Open-child preserves non-content telemetry",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Open-child preserves global suite generation tombstone",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "F-02 records seen and cleanup complete",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Open-child ack exists after cleanup",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Delayed-open replay clears pending canaries",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Delayed-open replay acknowledges generation",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Reload after replay does not repeat destructive cleanup",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Multi-tab cross-context signal clears canaries",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Multi-tab stale tab persistence is locked",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Multi-tab autosave cannot restore canary",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "BFCache stale document cleans despite shared seen ack",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "BFCache stale document stays locked",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Fail-closed synthetic delete failure is observable",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Fail-closed does not falsely acknowledge",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Fail-closed status records failure",
+      "detail": ""
+    },
+    {
+      "ok": true,
+      "name": "Negative control detects disabled cleanup (weakened copy fails as required)",
+      "detail": ""
+    }
+  ],
+  "summary": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0
+  },
+  "status": "passed"
+}
+EXIT=0
+=== garp23 ===
+{
+  "schema": "ghrab-garp23-security-regression-v1",
+  "syntheticOnly": true,
+  "airStructural": {
+    "attempts": 24,
+    "mutationFamilies": 4,
+    "boundaryEscapes": 0,
+    "officialCorpus": {
+      "vectors": 18,
+      "wrapperAttempts": 54,
+      "boundaryEscapes": 0,
+      "sha256": "3560e60fd78a9cc81cfef1d7d2c3ba52b270ac5f38d582cc0cded3aa31183a6d"
+    },
+    "behavioralLiveModel": "NOT TESTED"
+  },
+  "privacyCanary": {
+    "type": "example.invalid",
+    "preflightBlocked": true
+  },
+  "pc01": {
+    "reviewedApplicationCallSites": 13,
+    "callSites": [
+      {
+        "file": "src/features/preview-editor.js",
+        "line": 539,
+        "operation": "acceptable-answer-enrichment"
+      },
+      {
+        "file": "src/features/testlab.js",
+        "line": 525,
+        "operation": "diagnostic-ping"
+      },
+      {
+        "file": "src/js/01-core.js",
+        "line": 1050,
+        "operation": "generator-help-answer"
+      },
+      {
+        "file": "src/js/03-ui-render.js",
+        "line": 416,
+        "operation": "listening-question-suggestions"
+      },
+      {
+        "file": "src/js/03-ui-render.js",
+        "line": 484,
+        "operation": "reading-package-suggestion"
+      },
+      {
+        "file": "src/js/08-manual-editor.js",
+        "line": 455,
+        "operation": "exercise-generation"
+      },
+      {
+        "file": "src/js/08-manual-editor.js",
+        "line": 462,
+        "operation": "exercise-generation"
+      },
+      {
+        "file": "src/js/08-manual-editor.js",
+        "line": 498,
+        "operation": "correctiveNote?'generation-repair':'exercise-generation'"
+      },
+      {
+        "file": "src/js/08-manual-editor.js",
+        "line": 552,
+        "operation": "correctiveNote?'generation-repair':'exercise-generation'"
+      },
+      {
+        "file": "src/js/08-manual-editor.js",
+        "line": 578,
+        "operation": "batchCorrectiveNote?'generation-repair':'exercise-generation'"
+      },
+      {
+        "file": "src/js/08-manual-editor.js",
+        "line": 693,
+        "operation": "correctiveNote?'generation-repair':'test-generation'"
+      },
+      {
+        "file": "src/js/09-selftest-keycheck.js",
+        "line": 364,
+        "operation": "answer-key-verification"
+      },
+      {
+        "file": "src/js/12-prompt-builder.js",
+        "line": 123,
+        "operation": "grading-scale-parse"
+      }
+    ]
+  },
+  "endWork": {
+    "lifecycleHarness": "scripts/test-suite-session-lifecycle.mjs",
+    "platformVersion": "1.1.2",
+    "contract": "ghrab-suite-session-v1"
+  },
+  "studentPackage": {
+    "canonicalTypesChecked": 21,
+    "answerKeyCanaryAbsent": true
+  },
+  "negativeControls": [
+    "weakened-production-boundary-detected",
+    "new-unreviewed-ai-call-detected",
+    "same-line-multiple-ai-calls-detected",
+    "template-context-ai-call-flagged-for-review",
+    "raw-differentiation-egress-detected",
+    "suite-session-negative-control-detected-by-lifecycle-harness",
+    "answer-key-strip-leak-detected",
+    "same-origin-selftest-sandbox-weakening-detected",
+    "same-origin-print-sandbox-weakening-detected",
+    "benign-pseudonymous-preflight-allowed",
+    "other-app-storage-preserved"
+  ],
+  "passed": 86,
+  "failed": 0,
+  "failures": []
+}
+EXIT=0
+=== deadline-timers ===
+✅  Oba studentské runtimy používají deadline timer a přepočet po návratu.
+EXIT=0
+=== fingerprint-current ===
+✅ AI assurance fingerprint current: 6c5ec5d8c6d430085294b636ee3380c31c54ff9bb5e3a0b1f1920266f9f0f3fb
+EXIT=0
+=== sbom-current ===
+✅ CycloneDX 1.7 SBOM odpovídá lockfile: 113 komponent.
+EXIT=0
+=== garp25-prep-static ===
+
+> generator-testu@7.1.23 garp25:prep-static
+> npm run garp25:selftest && npm run garp25:sync-rewrite && npm run garp25:sbom:check && npm run garp25:ai-evidence:check && npm run garp25:sw && npm run garp25:vendored && npm run garp25:leaks
+
+
+> generator-testu@7.1.23 garp25:selftest
+> node security/garp25/tools/selftest-garp251.mjs
+
+{
+  "status": "PASS",
+  "checks": 51,
+  "passed": 51,
+  "failed": []
+}
+
+> generator-testu@7.1.23 garp25:sync-rewrite
+> node scripts/test-ai-core-version-rewrite.mjs
+
+{
+  "status": "PASS",
+  "checks": [
+    "targeted-json-keys-only",
+    "brandVersion-preserved",
+    "build-CORE_VERSION-only"
+  ]
+}
+
+> generator-testu@7.1.23 garp25:sbom:check
+> node scripts/generate-cyclonedx-sbom.mjs security/sbom/generator-testu-7.1.23.cdx.json --check
+
+✅ CycloneDX 1.7 SBOM odpovídá lockfile: 113 komponent.
+
+> generator-testu@7.1.23 garp25:ai-evidence:check
+> node scripts/generate-ai-assurance-fingerprint.mjs security/evidence/ai-assurance-fingerprint.json --check
+
+✅ AI assurance fingerprint current: 6c5ec5d8c6d430085294b636ee3380c31c54ff9bb5e3a0b1f1920266f9f0f3fb
+
+> generator-testu@7.1.23 garp25:sw
+> node security/garp25/tools/check-sw-security-freeze.mjs dist/sw.js dist security/security-critical-assets.json
+
+{
+  "status": "PASS",
+  "serviceWorker": "dist/sw.js",
+  "criticalListSource": "security/security-critical-assets.json",
+  "precachedEntries": 25,
+  "precacheSources": [
+    {
+      "source": "addAll:expression",
+      "entries": [
+        "./",
+        "./index.html",
+        "./manifest.webmanifest",
+        "./access/access-gate.css",
+        "./access/deployment-config.js",
+        "./access/reporter-bootstrap.js",
+        "./access/error-reporter.js",
+        "./access/error-reporter.css",
+        "./access/error-reporter-adapter.js",
+        "./manual/",
+        "./manual/index.html",
+        "./icons/icon-32.png",
+        "./icons/icon-192.png",
+        "./icons/icon-512.png",
+        "./icons/apple-touch-icon.png",
+        "./config/brand-manifest.json",
+        "./config/platform-manifest.json",
+        "./assets/brand/school-logo.png",
+        "./ghrab-platform.consumer.json",
+        "./features/testlab.js",
+        "./features/preview-editor.js"
+      ]
+    },
+    {
+      "source": "map-add:GHRAB_PLATFORM_P3_ASSETS",
+      "entries": [
+        "./ghrab/ghrab-platform.css",
+        "./ghrab/ghrab-artifact-envelope-v1.schema.json",
+        "./ghrab/ghrab-app-registry-v2.schema.json",
+        "./ghrab/ghrab-platform-manifest-1.1.2.json",
+        "./assets/brand/school-logo.png",
+        "./ghrab-platform.consumer.json"
+      ]
+    }
+  ],
+  "unresolvedCacheWrites": [],
+  "cacheFirstDetected": true,
+  "structuralNetworkOnlyGuard": true,
+  "criticalAssetsInDeployment": [
+    "access/suite-session-cleanup.js",
+    "config/deployment.json",
+    "config/deployment.school-server.json",
+    "ghrab/ghrab-platform.js"
+  ],
+  "findings": [],
+  "checkerRevision": "garp-2.5.1-r2-cache-write-coverage-fail-closed",
+  "note": "Static bounded analysis. PASS means no critical asset found in recognized Cache API write paths, all analyzed writes resolved/guarded, and deployed critical assets have structural isSecurityCriticalRequest -> networkOnlyNoStore routing. Does not replace SIM-07 or behavioral revocation tests."
+}
+
+> generator-testu@7.1.23 garp25:vendored
+> node security/garp25/tools/check-vendored-consistency.mjs security/vendored-consistency.generator.json
+
+{
+  "status": "PASS",
+  "canonicalRoot": "..",
+  "components": [
+    {
+      "id": "platform-js",
+      "sha256": "199d03d9dc9263a9e74ed1f1102df0324f3b63e78704f1c70aeacec5feec530c"
+    },
+    {
+      "id": "platform-css",
+      "sha256": "eb465488df46f3d1672d721094800b0be3eb1278924b7699873a483f130b07ad"
+    },
+    {
+      "id": "artifact-envelope-schema",
+      "sha256": "8edeaaadd72c7bf60285440dd59eb31d0e7139755e1e4642d5ab457816e46d58"
+    },
+    {
+      "id": "app-registry-schema",
+      "sha256": "47c797999eb93fbd918b968b90a8f8545f938db486fe635b19efcc7936b5672f"
+    },
+    {
+      "id": "school-logo",
+      "sha256": "300396a48cc36d8c2abda0aea673273d4d985476ba88fb0430630ef89ac86770"
+    }
+  ],
+  "declaredCopies": 11,
+  "checkedCopies": 11,
+  "profileCopiesNotBuilt": 0,
+  "drift": 0,
+  "findings": []
+}
+
+> generator-testu@7.1.23 garp25:leaks
+> node security/garp25/tools/scan-deployment-leaks.mjs dist
+
+{
+  "status": "PASS",
+  "root": "/mnt/data/round3_work/generator-testu-7.1.23-GARP2.5-SHIELD-KANDIDAT-KOLO-2/dist",
+  "info": [
+    "INFO-binary-not-scanned:assets/brand/school-logo.png",
+    "INFO-binary-not-scanned:icons/apple-touch-icon.png",
+    "INFO-binary-not-scanned:icons/icon-192.png",
+    "INFO-binary-not-scanned:icons/icon-32.png",
+    "INFO-binary-not-scanned:icons/icon-512.png",
+    "INFO-binary-not-scanned:icons/icon-maskable-512.png"
+  ]
+}
+EXIT=0
+=== precache ===
+✅  Service worker precache je konzistentní (21/21 souborů existuje).
+EXIT=0
+=== platform-conformance ===
+{
+  "schema": "ghrab-platform-conformance-result-v1",
+  "appId": "generator",
+  "appVersion": "7.1.23",
+  "total": 115,
+  "passed": 115,
+  "failed": 0,
+  "checks": [
+    {
+      "label": "dist exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "satellite dist has no duplicate platform tree",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "satellite source has no duplicate platform tree",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "consumer schema",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "package ↔ consumer version",
+      "ok": true,
+      "detail": "7.1.23 / 7.1.23"
+    },
+    {
+      "label": "platform contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "Studio Bridge contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "artifact envelope contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "artifact exports declared",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "artifact imports declared",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "native export formats declared",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "legacy JSON import policy declared",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "cache naming",
+      "ok": true,
+      "detail": "ghrab-generator-v7.1.23"
+    },
+    {
+      "label": "storage migration declared",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "storage namespace sestavovac_v5_13_0",
+      "ok": true,
+      "detail": "ghrab.generator.state.v1"
+    },
+    {
+      "label": "storage namespace sestavovac_tpl_v5_13_0",
+      "ok": true,
+      "detail": "ghrab.generator.templates.v1"
+    },
+    {
+      "label": "storage namespace sestavovac_hist_v5_13_0",
+      "ok": true,
+      "detail": "ghrab.generator.history.v1"
+    },
+    {
+      "label": "storage namespace sestavovac_mode",
+      "ok": true,
+      "detail": "ghrab.generator.theme.v1"
+    },
+    {
+      "label": "storage namespace sestavovac_gemini_model",
+      "ok": true,
+      "detail": "ghrab.generator.ai.model.v1"
+    },
+    {
+      "label": "storage namespace sestavovac_gemini_key",
+      "ok": true,
+      "detail": "ghrab.generator.ai.key.local.v1"
+    },
+    {
+      "label": "storage namespace sestavovac_gemini_key_session",
+      "ok": true,
+      "detail": "ghrab.generator.ai.key.session.v1"
+    },
+    {
+      "label": "storage namespace sestavovac_gemini_data_notice_v1",
+      "ok": true,
+      "detail": "ghrab.generator.ai.data-notice.v1"
+    },
+    {
+      "label": "storage namespace sestavovac_school_security_code_v1",
+      "ok": true,
+      "detail": "ghrab.generator.security-code.v1"
+    },
+    {
+      "label": "storage namespace genOnboardingDone_v1",
+      "ok": true,
+      "detail": "ghrab.generator.onboarding-done.v1"
+    },
+    {
+      "label": "storage namespace genWelcomeShown_session",
+      "ok": true,
+      "detail": "ghrab.generator.welcome-shown.v1"
+    },
+    {
+      "label": "storage namespace sestavovac_",
+      "ok": true,
+      "detail": "ghrab.generator.legacy."
+    },
+    {
+      "label": "vendor ghrab-platform.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "vendor hash ghrab-platform.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist ghrab-platform.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist hash ghrab-platform.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "vendor ghrab-platform.css",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "vendor hash ghrab-platform.css",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist ghrab-platform.css",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist hash ghrab-platform.css",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "vendor ghrab-artifact-envelope-v1.schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "vendor hash ghrab-artifact-envelope-v1.schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist ghrab-artifact-envelope-v1.schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist hash ghrab-artifact-envelope-v1.schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "vendor ghrab-app-registry-v2.schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "vendor hash ghrab-app-registry-v2.schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist ghrab-app-registry-v2.schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist hash ghrab-app-registry-v2.schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "vendor school-logo.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "vendor hash school-logo.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist school-logo.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist hash school-logo.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist ghrab-platform.consumer.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist config/platform-manifest.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist config/brand-manifest.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "dist platform-build-info.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "built consumer identity",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "built platform manifest contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "built platform cache metadata",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "built service-worker contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "built artifact contracts",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "data manifest migration id",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "data manifest canonical prefix",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "data manifest artifact exports",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "data manifest artifact imports",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "canonical logo manifest hash",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "no inline school logo base64",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "no legacy school logo reference",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "no obsolete top-level platform references in satellite build",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "platform contract present in build",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "full eligible HTML documents found",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "exactly one platform loader index.html",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "label": "exactly one platform config index.html",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "label": "app identity index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "theme root contract index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "exactly one platform loader manual/index.html",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "label": "exactly one platform config manual/index.html",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "label": "app identity manual/index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "theme root contract manual/index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "service worker exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "service worker canonical cache",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "service worker contract marker",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "service worker legacy cleanup list",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "service worker update protocol",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "service worker platform precache",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "service worker P3 asset list",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "no automatic skipWaiting during install",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "service worker no-store bypass",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "service worker no obsolete satellite platform asset",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "PWA manifest exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "PWA version",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "PWA platform contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "PWA cache metadata",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "PWA app identity",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "runtime identity",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "runtime suite session contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "runtime previous platform rejected",
+      "ok": true,
+      "detail": "1.1.1"
+    },
+    {
+      "label": "runtime current accepted",
+      "ok": true,
+      "detail": "1.1.2"
+    },
+    {
+      "label": "runtime n+1 accepted",
+      "ok": true,
+      "detail": "1.2.0"
+    },
+    {
+      "label": "runtime major rejected",
+      "ok": true,
+      "detail": "2.0.0"
+    },
+    {
+      "label": "storage alias reads migrated value",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "canonical storage value created",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "storage alias writes canonical key",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "storage migration idempotent",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "storage migration rollback",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "rollback restored original value",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "Studio Bridge v2 create",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "Studio Bridge v2 peek",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "Studio Bridge v2 take",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "Studio Bridge consumes once",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "artifact envelope SHA-256",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "artifact envelope unwrap",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "artifact envelope detection",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "artifact envelope unwrapMaybe",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "legacy artifact compatibility",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "theme contract runtime",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "artifact compatibility facade",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "accessibility runtime contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "performance runtime contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "lazy module runtime contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "label": "lazy script loader available",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}
+EXIT=0
+=== qa-quality ===
+{
+  "schema": "ghrab-p3-quality-result-v1",
+  "appId": "generator",
+  "appVersion": "7.1.23",
+  "contracts": {
+    "accessibility": "ghrab-a11y-v1",
+    "performance": "ghrab-performance-v1",
+    "modules": "ghrab-lazy-modules-v1"
+  },
+  "metrics": {
+    "schema": "ghrab-performance-report-v1",
+    "appId": "generator",
+    "appVersion": "7.1.23",
+    "platformVersion": "1.1.2",
+    "measuredAt": "2026-09-08T05:00:47.407Z",
+    "distBytes": 2422225,
+    "jsBytes": 514852,
+    "cssBytes": 24284,
+    "htmlBytes": 1517233,
+    "fileCount": 39,
+    "fullHtmlCount": 2,
+    "entryHtmlBytes": 1468093,
+    "entryCriticalBytes": 1639056,
+    "largestInlineScriptBytes": 154124,
+    "precacheBytes": 1970045,
+    "precacheAssetCount": 23,
+    "largestFileBytes": 1468093,
+    "largestFilePath": "index.html",
+    "duplicateLargeBytes": 0
+  },
+  "budget": {
+    "distBytes": 2450000,
+    "entryHtmlBytes": 1470000,
+    "entryCriticalBytes": 1655000,
+    "largestInlineScriptBytes": 170000,
+    "precacheBytes": 2130000,
+    "largestFileBytes": 1470000,
+    "duplicateLargeBytes": 20000
+  },
+  "precacheAssets": [
+    "access/access-gate.css",
+    "access/deployment-config.js",
+    "access/error-reporter-adapter.js",
+    "access/error-reporter.css",
+    "access/error-reporter.js",
+    "access/reporter-bootstrap.js",
+    "assets/brand/school-logo.png",
+    "config/brand-manifest.json",
+    "config/platform-manifest.json",
+    "features/preview-editor.js",
+    "features/testlab.js",
+    "ghrab-platform.consumer.json",
+    "ghrab/ghrab-app-registry-v2.schema.json",
+    "ghrab/ghrab-artifact-envelope-v1.schema.json",
+    "ghrab/ghrab-platform-manifest-1.1.2.json",
+    "ghrab/ghrab-platform.css",
+    "icons/apple-touch-icon.png",
+    "icons/icon-192.png",
+    "icons/icon-32.png",
+    "icons/icon-512.png",
+    "index.html",
+    "manifest.webmanifest",
+    "manual/index.html"
+  ],
+  "duplicateGroups": [],
+  "checks": [
+    {
+      "id": "dist.exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "platform.version",
+      "ok": true,
+      "detail": "1.1.2"
+    },
+    {
+      "id": "contract.a11y",
+      "ok": true,
+      "detail": "ghrab-a11y-v1"
+    },
+    {
+      "id": "contract.performance",
+      "ok": true,
+      "detail": "ghrab-performance-v1"
+    },
+    {
+      "id": "contract.modules",
+      "ok": true,
+      "detail": "ghrab-lazy-modules-v1"
+    },
+    {
+      "id": "platform.runtime",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "platform.styles",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.reduced-motion",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.focus-visible",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.skip-link",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.html-documents",
+      "ok": true,
+      "detail": "2"
+    },
+    {
+      "id": "a11y.lang:index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.viewport:index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.zoom:index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.title:index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.main:index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.runtime:index.html",
+      "ok": true,
+      "detail": "platform=1; engine=0"
+    },
+    {
+      "id": "a11y.lang:manual/index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.viewport:manual/index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.zoom:manual/index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.title:manual/index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.main:manual/index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "a11y.runtime:manual/index.html",
+      "ok": true,
+      "detail": "platform=1; engine=0"
+    },
+    {
+      "id": "module.exists:features/testlab.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "module.referenced:features/testlab.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "module.exists:features/preview-editor.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "module.referenced:features/preview-editor.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "id": "budget.distBytes",
+      "ok": true,
+      "detail": "2422225 <= 2450000"
+    },
+    {
+      "id": "budget.entryHtmlBytes",
+      "ok": true,
+      "detail": "1468093 <= 1470000"
+    },
+    {
+      "id": "budget.entryCriticalBytes",
+      "ok": true,
+      "detail": "1639056 <= 1655000"
+    },
+    {
+      "id": "budget.largestInlineScriptBytes",
+      "ok": true,
+      "detail": "154124 <= 170000"
+    },
+    {
+      "id": "budget.precacheBytes",
+      "ok": true,
+      "detail": "1970045 <= 2130000"
+    },
+    {
+      "id": "budget.largestFileBytes",
+      "ok": true,
+      "detail": "1468093 <= 1470000"
+    },
+    {
+      "id": "budget.duplicateLargeBytes",
+      "ok": true,
+      "detail": "0 <= 20000"
+    },
+    {
+      "id": "budget.minimum-count",
+      "ok": true,
+      "detail": "7"
+    }
+  ],
+  "warnings": [],
+  "summary": {
+    "total": 35,
+    "passed": 35,
+    "failed": 0,
+    "warnings": 0
+  }
+}
+EXIT=0
+=== qa-xss ===
+{
+  "schema": "ghrab-p5-xss-sink-audit-v1",
+  "appId": "generator",
+  "counts": {
+    "innerHTML": 161,
+    "insertAdjacentHTML": 8,
+    "outerHTML": 5,
+    "documentWrite": 0,
+    "eval": 0,
+    "newFunction": 0
+  },
+  "baseline": {
+    "innerHTML": 161,
+    "insertAdjacentHTML": 8,
+    "outerHTML": 5,
+    "documentWrite": 0,
+    "eval": 0,
+    "newFunction": 0
+  },
+  "csp": {
+    "unsafeInlineScript": true,
+    "unsafeInlineStyle": true
+  },
+  "evidence": [
+    {
+      "file": "src/features/preview-editor.js",
+      "kind": "innerHTML",
+      "count": 2
+    },
+    {
+      "file": "src/features/testlab.js",
+      "kind": "innerHTML",
+      "count": 5
+    },
+    {
+      "file": "src/js/01-core.js",
+      "kind": "innerHTML",
+      "count": 8
+    },
+    {
+      "file": "src/js/02-state-persistence.js",
+      "kind": "innerHTML",
+      "count": 6
+    },
+    {
+      "file": "src/js/03-ui-render.js",
+      "kind": "innerHTML",
+      "count": 13
+    },
+    {
+      "file": "src/js/04-templates.js",
+      "kind": "innerHTML",
+      "count": 11
+    },
+    {
+      "file": "src/js/05-form-fields.js",
+      "kind": "innerHTML",
+      "count": 10
+    },
+    {
+      "file": "src/js/06-result-didactics.js",
+      "kind": "innerHTML",
+      "count": 10
+    },
+    {
+      "file": "src/js/07-gemini.js",
+      "kind": "innerHTML",
+      "count": 3
+    },
+    {
+      "file": "src/js/07z-ai-core-integration.js",
+      "kind": "innerHTML",
+      "count": 1
+    },
+    {
+      "file": "src/js/08-manual-editor.js",
+      "kind": "innerHTML",
+      "count": 12
+    },
+    {
+      "file": "src/js/09-selftest-keycheck.js",
+      "kind": "innerHTML",
+      "count": 14
+    },
+    {
+      "file": "src/js/10-testlab.js",
+      "kind": "innerHTML",
+      "count": 6
+    },
+    {
+      "file": "src/js/12-prompt-builder.js",
+      "kind": "innerHTML",
+      "count": 8
+    },
+    {
+      "file": "src/js/13e-secure-student-runtime.js",
+      "kind": "innerHTML",
+      "count": 8
+    },
+    {
+      "file": "src/js/13f-secure-teacher-verifier.js",
+      "kind": "innerHTML",
+      "count": 12
+    },
+    {
+      "file": "src/js/14b-instant-test-runtime.js",
+      "kind": "innerHTML",
+      "count": 12
+    },
+    {
+      "file": "src/js/14b-instant-test-runtime.js",
+      "kind": "insertAdjacentHTML",
+      "count": 3
+    },
+    {
+      "file": "src/js/14d-generator-release-guides.js",
+      "kind": "innerHTML",
+      "count": 5
+    },
+    {
+      "file": "src/js/15-welcome-onboarding.js",
+      "kind": "innerHTML",
+      "count": 5
+    },
+    {
+      "file": "src/js/16-access.js",
+      "kind": "innerHTML",
+      "count": 1
+    },
+    {
+      "file": "src/js/50-cs-module.js",
+      "kind": "innerHTML",
+      "count": 1
+    },
+    {
+      "file": "src/js/50-cs-module.js",
+      "kind": "insertAdjacentHTML",
+      "count": 5
+    },
+    {
+      "file": "src/js/50-cs-module.js",
+      "kind": "outerHTML",
+      "count": 5
+    },
+    {
+      "file": "src/shell.html",
+      "kind": "innerHTML",
+      "count": 2
+    },
+    {
+      "file": "public/access/error-reporter.js",
+      "kind": "innerHTML",
+      "count": 2
+    },
+    {
+      "file": "public/manual/index.html",
+      "kind": "innerHTML",
+      "count": 4
+    }
+  ],
+  "limitations": [
+    "This is a regression inventory, not proof that every HTML sink is safe.",
+    "Current inline-script architecture may still require unsafe-inline until CSP refactoring."
+  ],
+  "failures": [],
+  "status": "passed"
+}
+EXIT=0

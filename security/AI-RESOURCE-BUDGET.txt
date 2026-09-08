@@ -1,0 +1,34 @@
+GARP 2.5.1 – AI RESOURCE BUDGET
+Application: generator 7.1.24
+
+Global request controls
+- browser file selection: max 12 files; max 20 MiB each.
+- AI runtime request cap: 18 MiB; max single part 14 MiB.
+- embedded text cap: 300 KiB source bytes and 24,000 normalized chars; AI source text cap 24,000 chars.
+- request timeout: 180,000 ms.
+- gatewayMaxRetries: 0 in shared AI runtime config; app repair/validation loops are separately bounded.
+- automatic provider fallback: false by deployment profile; direct Gemini fallback model list exists inside Core config but app mode selection/fallback is not autonomous.
+- streaming: false for all registered operations.
+- cancellation: AbortController/request cancellation is implemented for AI requests; suite end aborts active request.
+- concurrency: UI workflow is designed around one active generation flow; no server-side per-user concurrency/rate enforcement exists in static profile. Treat server rate limits as SHIELD-LIVE requirement.
+
+Operation | Max request/context | Max output | Max provider calls/workflow | Timeout | Retry/repair | Blast radius
+
+test-generation | 18 MiB req / 14 MiB part / 24k text source | 32768 tokens | 6 | 180s/call | validation loop max 2 attempts in editor paths | one teacher workflow; cost/latency up to bounded multi-call generation
+exercise-generation | same | 32768 | 6 | 180s | bounded repair paths max 2 | same
+generation-repair | same | 32768 | 6 | 180s | bounded max 2 at caller level | same
+listening-question-suggestions | same, document/text | 16384 | operation manifest has no explicit >1 workflow cap; caller path must remain bounded | 180s | no gateway retry | one teacher action
+reading-package-suggestion | text, 24k source | 16384 | no explicit >1 workflow cap | 180s | no gateway retry | one teacher action
+grading-scale-parse | text | 4096 | no explicit >1 workflow cap | 180s | no gateway retry | one parse action
+answer-key-verification | text/structured content | 8192 | no explicit >1 workflow cap | 180s | no gateway retry | one verification action
+acceptable-answer-enrichment | text/previous model output is fenced as untrusted | 8192 | no explicit >1 workflow cap | 180s | no gateway retry | one enrichment action
+generator-help-answer | text | 8192 | no explicit >1 workflow cap | 180s | no gateway retry | one help action
+diagnostic-ping | tiny text | 1024 | 1 expected | 180s | no gateway retry | negligible
+
+SHIELD-LIVE requirements before school production
+- enforce authenticated per-user/per-app rate limits and request/body limits at gateway;
+- cap concurrent requests and queue length;
+- enforce provider/model allowlist outside browser input;
+- server-side budget/usage observability without logging student prompt/output content;
+- fail closed on unavailable authorization/budget service;
+- document cancellation propagation from client -> gateway -> provider where supported.

@@ -1,0 +1,103 @@
+GARP 2.5.1 GHRAB – PRŮVODNÍ LIST APLIKACE
+
+======================================================================
+1. IDENTITA
+======================================================================
+
+appId:                    generator
+Název:                    Generátor testů
+Repozitář:                generator-testu (snapshot předaný jako ZIP; vzdálený repo stav nebyl v tomto kole dotazován)
+Aktuální verze:           7.1.24
+Verze standardu:          GARP 2.5.1 GHRAB / TOOLING-R2
+SHA-256 SHA256SUMS balíčku, podle kterého se audituje:
+                          1a0cc54c16bbebd215c3955d352db3f9d12513f5cebd4cc5a6815d2b5fe0a792
+Vstupní GARP ZIP SHA-256:  3c95f0b487806df63a5b90663d20c4961eebb20681b8c2db77e142426af31aea
+Vstupní app ZIP SHA-256:   fc8aa18df996b8f74a4ce112434bb17d484f2556dfc986cdba0b30c04aa832d6
+Poslední doložitelně nezávisle přezkoumaný source stav:
+                          7.1.19 jako vstup druhého Claude kola dle release notes.
+                          Byte-for-byte baseline ani autoritativní protokol tohoto kola nebyly v předaném balíku,
+                          proto historický exact diff 7.1.19 -> 7.1.22 = NOT TESTED.
+Aktuální migrační vstup:  7.1.22 (exact ZIP hash výše)
+Toto kolo:                2026-09-07, ChatGPT/Codex migrační role, výsledek AMBER source candidate
+
+======================================================================
+2. TRVALÁ KLASIFIKACE
+======================================================================
+
+Třída dat:                D3
+  odůvodnění:             aplikace může lokálně obsahovat jména/kódy studentů, odpovědi, výsledky,
+                          učitelské materiály a AI kontext. Pseudonymizace diferenciace není anonymizace.
+Povolená egress cesta:    veřejný profil: explicitní AI operace přes direct Gemini dle deployment manifestu;
+                          školní profil: pouze same-origin school gateway. Reálná D3 studentská data nejsou
+                          tímto kandidátem schválena pro externí AI egress.
+AGENTIC:                  PARTIAL
+  ověřeno proti call grafu dne: 2026-09-07
+  odůvodnění:             model generuje/transformuje obsah; model sám nevolí ani nespouští nástroje,
+                          nemá capability granty, autonomní side-effect akce, MCP ani agent loop.
+Deployment profil:        A statický pro současný GitHub Pages profil; B server jako připravená, neaktivní šablona
+Build profil:             obecný + připravený školní
+Service worker:           ANO
+Vendorované komponenty:   GHRAB AI Core 1.0.0; GHRAB Platform 1.1.2; Acorn 8.17.0 je build/runtime vendor asset z lockfile
+
+======================================================================
+3. TRVALÁ ROZHODNUTÍ
+======================================================================
+
+KD-01 | GH-14 / SH-AG | PARTIAL | učitel může explicitně povolit jediný provider-side tool url_context; bez lokální agentní smyčky, zápisů a autonomních side effects | opravné kolo | 2026-09-07
+KD-02 | GH-06 | D3 | potenciální studentské identity/odpovědi/výsledky a učitelský obsah vyžadují nejvyšší lokální klasifikaci | migrační audit | 2026-09-07
+KD-03 | RI signing | private key mimo repo/build | skutečný release key se nesmí vyskytovat ve source ZIPu, CI logu ani deploymentu | GARP 2.5.1 | 2026-09-07
+KD-04 | source/deployment | oddělit | source obsahuje build/test/tooling; školní deployment smí obsahovat pouze build artefakt + schválené release evidence | GARP 2.5.1 | 2026-09-07
+
+======================================================================
+4. REGISTR DLUHŮ
+======================================================================
+
+DL-01 | HIGH | full npm dependency install + celý regression/browser chain nebyl v tomto prostředí proveden (DNS/registry nedostupné) | zachované pinned lockfile, built-in regresní subset 9/9 proveditelných kontrol PASS; GARP23 86/86 a suite-session 20/20 PASS | před Prompt E / CI | npm ci + npm test + qa:p5:ci GREEN
+DL-02 | HIGH | aktuální 7.1.24 dist nebylo možné čistě sestavit, protože Acorn package bytes nejsou v source snapshotu a registry nebyla dostupná | build fail-closed vyžaduje Acorn; žádný artefakt nebyl podvržen | před Prompt E / CI | clean build z exact lockfile + deployment leak/SW freeze + RI-PREP GREEN
+DL-03 | HIGH | nezávislé Prompt E review po změně distribuovaných bajtů chybí | kandidát výslovně non-production | Prompt E | nezávislý review uzavře nálezy
+DL-04 | HIGH | SHIELD-LIVE / RI-LIVE / school server enforcement není nasazen | school profile fail-closed hlásí not-connected | school-server rollout | live auth/gateway/headers/egress/secrets/resource/revocation testy PASS
+DL-05 | HIGH | organizační evidence k provider retention, smluvnímu režimu a schválení D3 egress není v source balíku | real student data zakázána pro tento kandidát | před reálnými daty | schválená organizační privacy evidence + live transport validation
+DL-06 | MEDIUM | právní provenance školního loga/PWA ikon není doložena samostatným licenčním dokladem | přesné hashe a repo provenance inventarizovány; veřejný/school release vyžaduje owner potvrzení | před produkčním release | doložené oprávnění/owner attestation
+DL-07 | MEDIUM | CSP obsahuje kompatibilitní unsafe-inline | unsafe-eval zakázán; CSP parser/check je součástí chainu | budoucí modularizace | odstranit inline handlers/styles a unsafe-inline
+DL-08 | MEDIUM | GH-01 ekosystémová byte identity proti kanonickému AI Studio repo nebyla ověřena | lokální vendor manifesty mají SHA-256 a build postprocessor je fail-closed | Prompt E / ecosystem wave | canonical Studio + všechny child repozitáře dostupné pro vendored-consistency
+DL-09 | MEDIUM | behaviorální revocation/SW GHNC-03 v reálném prohlížeči nebyl proveden | autoritativní critical-assets list + R2 static checker integrován | CI/live browser | revoked access nikdy nesmí přežít v SW cache path
+DL-10 | MEDIUM | DAST a skutečně servírované security headers nejsou ověřeny | static header contract existuje | post-deploy | served DAST/header capture PASS
+DL-11 | MEDIUM | online SCA vulnerability database scan nebyl dostupný | exact lockfile + CycloneDX 1.7 SBOM 113 komponent | CI s registry/advisory DB | SCA scan bez otevřeného confirmed HIGH/CRITICAL nebo schválená výjimka
+
+======================================================================
+5. STAV KONTROL, KTERÉ ZŮSTÁVAJÍ NOT TESTED
+======================================================================
+
+Historický exact diff 7.1.19 -> 7.1.22 | chybí byte baseline/protokol | dodat autoritativní baseline snapshot
+Full npm test / lint / browser / axe / workflow | registry/dependencies nedostupné | npm ci z exact lockfile
+Current clean build 7.1.24 | chybí exact Acorn package bytes | npm ci / trusted artifact cache
+SCA advisory scan | není dostupná advisory DB | npm audit / schválený SCA scanner v CI
+DAST + served headers | není live URL/current dist | post-deploy test
+RI-PREP na skutečném 7.1.24 dist | dist nebyl vytvořen | clean build + disposable signer
+RI-LIVE | školní Integrity Service není live | school server deployment
+SHIELD-LIVE | školní server není live | live server controls
+GH-01 ecosystem vendor byte identity | chybí canonical Studio + suite repos | ecosystem validation
+GHNC-03 browser revocation/SW | chybí browser/deployment | Playwright/live smoke
+Behaviorální AIR proti živému modelu | toto kolo nemění AI boundary; živý model test nebyl znovu spuštěn | nezávislý model red-team při model/boundary změně
+Source-control branch protection/MFA | organizační GitHub evidence není ve snapshotu | admin evidence
+Provider retention/legal basis | organizační evidence není ve snapshotu | privacy/contract evidence
+
+======================================================================
+6. HISTORIE KOL
+======================================================================
+
+2026-08-30 | ChatGPT/Codex + Claude dle release notes | 7.1.18-7.1.20 | GARP 2.3 candidate cycles | RELEASE-NOTES-7.1.18..20.md
+2026-09-05/06 | platform migration | 7.1.21-7.1.22 | ecosystem-wave candidate, non-production | RELEASE-NOTES-7.1.21..22.md
+2026-09-07 | ChatGPT/Codex | fc8aa18df996b8f74a4ce112434bb17d484f2556dfc986cdba0b30c04aa832d6 | GARP 2.5.1 SHIELD source candidate AMBER | PREDANI artefakt mimo repo
+
+======================================================================
+7. CO SE MUSÍ ZNOVU OTEVŘÍT PŘI PŘÍŠTÍ ZMĚNĚ
+======================================================================
+
+- změna modelu/provideru/system promptu/prompt assembly: AIR + SH-AI znovu;
+- změna auth/app-guard/session/SW: RT/SIM/GH-02 + revocation znovu;
+- změna storage/import/export/retence: PC-01/GH-06/privacy znovu;
+- přidání AI tool/MCP/autonomního side effectu: AGENTIC znovu klasifikovat a SH-AG již nebude N/A;
+- změna network egress: egress allowlist/privacy/DAST znovu;
+- změna vendorované Platform/Core vrstvy: GH-01 byte identity a suite regression znovu;
+- každý nový release: RI-PREP se skutečným dist a až poté nezávislé Prompt E.

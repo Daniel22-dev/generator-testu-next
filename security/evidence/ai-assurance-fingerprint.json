@@ -1,0 +1,121 @@
+{
+  "schema": "ghrab-ai-assurance-fingerprint-v1",
+  "appId": "generator",
+  "appVersion": "7.1.24",
+  "coreVersion": "1.0.0",
+  "providerBoundary": "deployment-profile-controlled",
+  "aiCoreContract": "1",
+  "fingerprintAlgorithm": "SHA-256(path\\0sha256\\0size\\n)",
+  "fingerprint": "c27954f4ab76c7634d6d1fee42d96ca2d71ba8b45e15aa2c4dc4df7bf07687f1",
+  "files": [
+    {
+      "path": "src/js/01-core.js",
+      "size": 154295,
+      "sha256": "5125bbe69567bd6f73b6631684a01e03994e25281c1f448e836ba992368d8203"
+    },
+    {
+      "path": "src/js/03-ui-render.js",
+      "size": 37086,
+      "sha256": "80f67c6743a301f87bb2f866681b302684448d563008b78d918aa4077fe7c74c"
+    },
+    {
+      "path": "src/js/05-form-fields.js",
+      "size": 113648,
+      "sha256": "98e1c353cff428fbd02a4b3b86f92518a3e1e0afb2517354612eab66e0ae232f"
+    },
+    {
+      "path": "src/js/07-gemini.js",
+      "size": 67322,
+      "sha256": "e35b9038df915c0a31fdc3054fff9a798e24826b6e1662c9492280e9c03245e6"
+    },
+    {
+      "path": "src/js/07z-ai-core-integration.js",
+      "size": 11712,
+      "sha256": "fb7e4d8366f9a273506ba865cbb7b3436e5b3b30138ac8c6ae990609a1699c82"
+    },
+    {
+      "path": "src/js/08-manual-editor.js",
+      "size": 73863,
+      "sha256": "affc2dfad7ca5ed10499bd61858a26a9d8b13612c9f7e3c06d5ad198c9fcb654"
+    },
+    {
+      "path": "src/js/09-selftest-keycheck.js",
+      "size": 57744,
+      "sha256": "8c527c969862af6ff041e979163ee0694e796bb9dd7ffa2c6c676bfd94346e93"
+    },
+    {
+      "path": "src/js/12-prompt-builder.js",
+      "size": 51187,
+      "sha256": "2c08a7299b1a59352b08f82e3958d8d3fed89d45decc8d5b8b490c6e18ddcc2d"
+    },
+    {
+      "path": "src/js/13a-secure-helpers.js",
+      "size": 30656,
+      "sha256": "6da903b777d2aebcec453cce895b3146c9253fdd25c2e294080d4ee25615b52a"
+    },
+    {
+      "path": "src/js/50-cs-module.js",
+      "size": 93470,
+      "sha256": "dfb828bb1f7739ac4a944640d643406c614d26888108f5a2590abc6cf7879fde"
+    },
+    {
+      "path": "src/features/preview-editor.js",
+      "size": 45729,
+      "sha256": "08e7ebc47477ab9d27f5deb893990c0a336ff0d088d2ba4fa1c1dc83671aaa52"
+    },
+    {
+      "path": "src/features/testlab.js",
+      "size": 62765,
+      "sha256": "2e88994ac47e912ee8fb87bb095c46b0b7e06c5397a9962e867ec0daa2e34ce9"
+    },
+    {
+      "path": "public/ai-operations.json",
+      "size": 4636,
+      "sha256": "39d5150b3e37ec0088bb363badbd980130235194f75fe5460380759217e14f69"
+    },
+    {
+      "path": "ghrab-ai-core.consumer.json",
+      "size": 324,
+      "sha256": "f67e63e6546ffd8bbd530787b15d2791832ceadb48dd91d2c1853ff5e36304e9"
+    },
+    {
+      "path": "vendor/ghrab-ai-core-1.0.0/ghrab-ai-core-manifest-1.0.0.json",
+      "size": 392,
+      "sha256": "fc006c3e500495965188c1d385f5ecfd9a7b8967fd86d792883c649fd21ce9b8"
+    },
+    {
+      "path": "security/garp23-ai-red-corpus.json",
+      "size": 7112,
+      "sha256": "3560e60fd78a9cc81cfef1d7d2c3ba52b270ac5f38d582cc0cded3aa31183a6d"
+    }
+  ],
+  "scopeDetection": {
+    "tokens": [
+      "callGeminiJSON",
+      "buildContentPrompt",
+      "wrapUntrustedSource",
+      "wrapUntrustedField",
+      "wrapUntrustedMetadata",
+      "aiTrustedSystemInstruction",
+      "stripAiBoundaryTokens",
+      "aiSafeLabel",
+      "generativelanguage.googleapis.com",
+      "x-goog-api-key"
+    ],
+    "discoveredSourceFiles": [
+      "src/features/preview-editor.js",
+      "src/features/testlab.js",
+      "src/js/01-core.js",
+      "src/js/03-ui-render.js",
+      "src/js/05-form-fields.js",
+      "src/js/07-gemini.js",
+      "src/js/07z-ai-core-integration.js",
+      "src/js/08-manual-editor.js",
+      "src/js/09-selftest-keycheck.js",
+      "src/js/12-prompt-builder.js",
+      "src/js/50-cs-module.js"
+    ],
+    "untrackedSourceFiles": []
+  },
+  "invalidationRule": "Any change to a listed file invalidates inherited behavioral AIR evidence until reviewed/re-executed. The generator also fails if a .js/.mjs source under src/ or public/ uses an AI/prompt-boundary token or direct Gemini transport token and is not listed. Model/provider/system-instruction changes must never remain current by version label alone."
+}

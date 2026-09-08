@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "files": 64,
+  "output": "/mnt/data/n301_fix/generator-testu-7.1.24-GARP2.5-SHIELD-RUNTIME-HARDENING/security/security-evidence-manifest.json"
+}

@@ -1,0 +1,15 @@
+N-01 deployment-leak scanner regression controls
+--- legitimate token label ---
+{
+  "status": "PASS",
+  "root": "/mnt/data/garp_fix/n01test",
+  "info": []
+}
+--- assigned synthetic token ---
+{
+  "status": "FAIL",
+  "errors": [
+    "secret-pattern:index.html:assigned-secret-literal"
+  ],
+  "info": []
+}

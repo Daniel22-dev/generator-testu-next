@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "serviceWorker": "public/sw.js",
+  "criticalListSource": "security/security-critical-assets.json",
+  "precachedEntries": 23,
+  "precacheSources": [
+    {
+      "source": "addAll:expression",
+      "entries": [
+        "./",
+        "./index.html",
+        "./manifest.webmanifest",
+        "./access/access-gate.css",
+        "./access/deployment-config.js",
+        "./access/reporter-bootstrap.js",
+        "./access/error-reporter.js",
+        "./access/error-reporter.css",
+        "./access/error-reporter-adapter.js",
+        "./manual/",
+        "./manual/index.html",
+        "./icons/icon-32.png",
+        "./icons/icon-192.png",
+        "./icons/icon-512.png",
+        "./icons/apple-touch-icon.png",
+        "./config/brand-manifest.json",
+        "./config/platform-manifest.json",
+        "./assets/brand/school-logo.png",
+        "./ghrab-platform.consumer.json",
+        "./access/suite-session-cleanup.js",
+        "./ghrab/ghrab-platform.js",
+        "./features/testlab.js",
+        "./features/preview-editor.js"
+      ]
+    }
+  ],
+  "unresolvedCacheWrites": [],
+  "cacheFirstDetected": true,
+  "policySchema": "ghrab-sw-security-assets-v2",
+  "structuralNetworkOnlyGuard": true,
+  "structuralNetworkFirstFallbackGuard": true,
+  "criticalAssetsInDeployment": [],
+  "networkFirstFallbackAssetsInDeployment": [
+    "access/suite-session-cleanup.js",
+    "ghrab/ghrab-platform.js"
+  ],
+  "findings": [
+    {
+      "severity": "INFO",
+      "issue": "zadny network-only security-critical asset nenalezen - overit seznam rucne",
+      "detail": "app-guard,access-control,revoked-access.json,runtime-config,config/deployment.json,config/deployment.school-server.json,release-integrity.json,release-integrity.sig,integrity-status"
+    }
+  ],
+  "checkerRevision": "garp-2.5.1-r3-runtime-failsafe-routing",
+  "note": "Static bounded analysis. PASS means network-only authorization/revocation/integrity assets are never cached and route through networkOnlyNoStore, while declared freshness-sensitive offline fail-safe scripts are install-cached and route networkFirst with cache fallback. Does not replace SIM-07 browser revocation/offline tests."
+}

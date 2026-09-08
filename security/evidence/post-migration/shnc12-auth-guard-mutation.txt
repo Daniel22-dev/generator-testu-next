@@ -1,0 +1,3 @@
+❌ Bootstrap odemyká skripty i bez ověřeného permitu.
+MUTATED_EXIT=1
+EXPECTED=nonzero

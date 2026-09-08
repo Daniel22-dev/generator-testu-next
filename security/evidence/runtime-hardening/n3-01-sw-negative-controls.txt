@@ -1,0 +1,185 @@
+N3-01 NEGATIVE A fallback removed from install cache exit=1 EXPECT nonzero
+{
+  "status": "FAIL",
+  "serviceWorker": "/mnt/data/sw_rh_mut/no-precache.js",
+  "criticalListSource": "security/security-critical-assets.json",
+  "precachedEntries": 21,
+  "precacheSources": [
+    {
+      "source": "addAll:expression",
+      "entries": [
+        "./",
+        "./index.html",
+        "./manifest.webmanifest",
+        "./access/access-gate.css",
+        "./access/deployment-config.js",
+        "./access/reporter-bootstrap.js",
+        "./access/error-reporter.js",
+        "./access/error-reporter.css",
+        "./access/error-reporter-adapter.js",
+        "./manual/",
+        "./manual/index.html",
+        "./icons/icon-32.png",
+        "./icons/icon-192.png",
+        "./icons/icon-512.png",
+        "./icons/apple-touch-icon.png",
+        "./config/brand-manifest.json",
+        "./config/platform-manifest.json",
+        "./assets/brand/school-logo.png",
+        "./ghrab-platform.consumer.json",
+        "./features/testlab.js",
+        "./features/preview-editor.js"
+      ]
+    }
+  ],
+  "unresolvedCacheWrites": [],
+  "cacheFirstDetected": true,
+  "policySchema": "ghrab-sw-security-assets-v2",
+  "structuralNetworkOnlyGuard": true,
+  "structuralNetworkFirstFallbackGuard": true,
+  "criticalAssetsInDeployment": [
+    "access/revoked-access.json"
+  ],
+  "networkFirstFallbackAssetsInDeployment": [
+    "access/suite-session-cleanup.js",
+    "ghrab/ghrab-platform.js"
+  ],
+  "findings": [
+    {
+      "severity": "HIGH",
+      "issue": "network-first fallback asset neni install/precache dostupny pro offline fail-safe",
+      "detail": "access/suite-session-cleanup.js"
+    },
+    {
+      "severity": "HIGH",
+      "issue": "network-first fallback asset neni install/precache dostupny pro offline fail-safe",
+      "detail": "ghrab/ghrab-platform.js"
+    }
+  ],
+  "checkerRevision": "garp-2.5.1-r3-runtime-failsafe-routing",
+  "note": "Static bounded analysis. PASS means network-only authorization/revocation/integrity assets are never cached and route through networkOnlyNoStore, while declared freshness-sensitive offline fail-safe scripts are install-cached and route networkFirst with cache fallback. Does not replace SIM-07 browser revocation/offline tests."
+}
+
+N3-01 NEGATIVE B support branch changed networkFirst -> networkOnly exit=1 EXPECT nonzero
+{
+  "status": "FAIL",
+  "serviceWorker": "/mnt/data/sw_rh_mut/networkonly-support.js",
+  "criticalListSource": "security/security-critical-assets.json",
+  "precachedEntries": 23,
+  "precacheSources": [
+    {
+      "source": "addAll:expression",
+      "entries": [
+        "./",
+        "./index.html",
+        "./manifest.webmanifest",
+        "./access/access-gate.css",
+        "./access/deployment-config.js",
+        "./access/reporter-bootstrap.js",
+        "./access/error-reporter.js",
+        "./access/error-reporter.css",
+        "./access/error-reporter-adapter.js",
+        "./manual/",
+        "./manual/index.html",
+        "./icons/icon-32.png",
+        "./icons/icon-192.png",
+        "./icons/icon-512.png",
+        "./icons/apple-touch-icon.png",
+        "./config/brand-manifest.json",
+        "./config/platform-manifest.json",
+        "./assets/brand/school-logo.png",
+        "./ghrab-platform.consumer.json",
+        "./access/suite-session-cleanup.js",
+        "./ghrab/ghrab-platform.js",
+        "./features/testlab.js",
+        "./features/preview-editor.js"
+      ]
+    }
+  ],
+  "unresolvedCacheWrites": [],
+  "cacheFirstDetected": true,
+  "policySchema": "ghrab-sw-security-assets-v2",
+  "structuralNetworkOnlyGuard": true,
+  "structuralNetworkFirstFallbackGuard": false,
+  "criticalAssetsInDeployment": [
+    "access/revoked-access.json"
+  ],
+  "networkFirstFallbackAssetsInDeployment": [
+    "access/suite-session-cleanup.js",
+    "ghrab/ghrab-platform.js"
+  ],
+  "findings": [
+    {
+      "severity": "HIGH",
+      "issue": "offline-failsafe asset nema strukturani isSecurityFreshnessFallbackRequest -> networkFirst vyjimku pred cache-first",
+      "detail": "access/suite-session-cleanup.js"
+    },
+    {
+      "severity": "HIGH",
+      "issue": "offline-failsafe asset nema strukturani isSecurityFreshnessFallbackRequest -> networkFirst vyjimku pred cache-first",
+      "detail": "ghrab/ghrab-platform.js"
+    }
+  ],
+  "checkerRevision": "garp-2.5.1-r3-runtime-failsafe-routing",
+  "note": "Static bounded analysis. PASS means network-only authorization/revocation/integrity assets are never cached and route through networkOnlyNoStore, while declared freshness-sensitive offline fail-safe scripts are install-cached and route networkFirst with cache fallback. Does not replace SIM-07 browser revocation/offline tests."
+}
+
+N3-01 NEGATIVE C revoked-access added to precache exit=1 EXPECT nonzero
+{
+  "status": "FAIL",
+  "serviceWorker": "/mnt/data/sw_rh_mut/strict-precache.js",
+  "criticalListSource": "security/security-critical-assets.json",
+  "precachedEntries": 24,
+  "precacheSources": [
+    {
+      "source": "addAll:expression",
+      "entries": [
+        "./",
+        "./index.html",
+        "./manifest.webmanifest",
+        "./access/access-gate.css",
+        "./access/deployment-config.js",
+        "./access/reporter-bootstrap.js",
+        "./access/error-reporter.js",
+        "./access/error-reporter.css",
+        "./access/error-reporter-adapter.js",
+        "./manual/",
+        "./manual/index.html",
+        "./icons/icon-32.png",
+        "./icons/icon-192.png",
+        "./icons/icon-512.png",
+        "./icons/apple-touch-icon.png",
+        "./config/brand-manifest.json",
+        "./config/platform-manifest.json",
+        "./assets/brand/school-logo.png",
+        "./ghrab-platform.consumer.json",
+        "./access/revoked-access.json",
+        "./access/suite-session-cleanup.js",
+        "./ghrab/ghrab-platform.js",
+        "./features/testlab.js",
+        "./features/preview-editor.js"
+      ]
+    }
+  ],
+  "unresolvedCacheWrites": [],
+  "cacheFirstDetected": true,
+  "policySchema": "ghrab-sw-security-assets-v2",
+  "structuralNetworkOnlyGuard": true,
+  "structuralNetworkFirstFallbackGuard": true,
+  "criticalAssetsInDeployment": [
+    "access/revoked-access.json"
+  ],
+  "networkFirstFallbackAssetsInDeployment": [
+    "access/suite-session-cleanup.js",
+    "ghrab/ghrab-platform.js"
+  ],
+  "findings": [
+    {
+      "severity": "CRITICAL",
+      "issue": "security-critical asset je v Cache API write/precache ceste",
+      "detail": "./access/revoked-access.json (vzor: revoked-access.json)"
+    }
+  ],
+  "checkerRevision": "garp-2.5.1-r3-runtime-failsafe-routing",
+  "note": "Static bounded analysis. PASS means network-only authorization/revocation/integrity assets are never cached and route through networkOnlyNoStore, while declared freshness-sensitive offline fail-safe scripts are install-cached and route networkFirst with cache fallback. Does not replace SIM-07 browser revocation/offline tests."
+}

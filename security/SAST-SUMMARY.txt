@@ -1,0 +1,21 @@
+GARP 2.5.1 – SAST SUMMARY
+Application: generator 7.1.24
+Date: 2026-09-07
+
+FORMAL STATUS: NOT TESTED as a complete SAST gate.
+
+Executed source/static security evidence:
+- check-source-structure: PASS.
+- check-production-readiness: PASS.
+- check-sensitive-data: PASS.
+- GARP 2.3 structural security harness: PASS 86/86.
+- suite-session lifecycle VM harness: PASS 20/20.
+- GARP 2.5.1 tooling selftest: PASS 43/43.
+- service-worker security freeze R2 on public source: PASS after fail-closed network-only/no-store fix.
+- Node syntax checks for modified build/SBOM/AI-fingerprint/SW tooling: PASS.
+
+Missing for a complete SAST/quality claim:
+- check-csp and full npm lint chain cannot execute without package acorn@8.17.0/dependencies.
+- no external commercial/independent SAST engine was available in this migration environment.
+
+Conclusion: strong local structural evidence exists, but complete SAST must remain NOT TESTED.

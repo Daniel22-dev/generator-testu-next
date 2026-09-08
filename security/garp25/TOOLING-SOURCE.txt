@@ -1,0 +1,9 @@
+GARP 2.5.1 SHIELD TOOLING SOURCE
+
+Source package: GARP-2.5.1-ZAVEDENI-TOOLING-R2(2).zip
+Input ZIP SHA-256: 3c95f0b487806df63a5b90663d20c4961eebb20681b8c2db77e142426af31aea
+Bundled SHA256SUMS.txt SHA-256: 1a0cc54c16bbebd215c3955d352db3f9d12513f5cebd4cc5a6815d2b5fe0a792
+Tool directory copied verbatim from: TOOLS/
+Self-test on source tooling: PASS 43/43 (2026-09-07)
+
+This file records tooling provenance only. It is not a production release attestation.

@@ -1,0 +1,17 @@
+GARP 2.5.1 – SCA / DEPENDENCY SUMMARY
+Application: generator 7.1.24
+Date: 2026-09-08
+
+INDEPENDENT ROUND-2 EVIDENCE:
+- exact npm ci: PASS (112 packages installed from unchanged package-lock).
+- npm audit: PASS, 0 vulnerabilities reported in the auditor environment on 2026-09-08.
+- Acorn exact version 8.17.0 present in that run.
+- GitHub Actions pinning: PASS, 18 external uses pinned to full commit SHA.
+- CycloneDX 1.7 SBOM: 113 components, 113/113 unique purl, 113/113 lockfile integrity hashes.
+
+ROUND-3 NOTE:
+- package-lock.json is unchanged from the independently audited round-2 candidate.
+- local npm ci re-run is NOT TESTED because registry.npmjs.org returns EAI_AGAIN in this environment.
+- local surrogate build uses preinstalled Acorn 8.15.0 only for structural build/vendored checks; it is not shipped and is not claimed as exact-lockfile evidence.
+
+Legal/license clearance is not inferred from package metadata. Brand/icon rights remain a separate owner-attestation item.

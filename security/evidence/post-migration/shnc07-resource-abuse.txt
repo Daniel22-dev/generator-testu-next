@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "control": "SHNC-07",
+  "mutation": "1025-byte text against maxPartBytes=1024",
+  "result": "PAYLOAD_TOO_LARGE",
+  "networkCalls": 0,
+  "note": "Request-size abuse is bounded locally. Server-side rate/concurrency limits remain SHIELD-LIVE NOT TESTED."
+}

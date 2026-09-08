@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "serviceWorker": "public/sw.js",
+  "criticalListSource": "security/security-critical-assets.json",
+  "precachedEntries": 21,
+  "precacheSources": [
+    {
+      "source": "addAll:expression",
+      "entries": [
+        "./",
+        "./index.html",
+        "./manifest.webmanifest",
+        "./access/access-gate.css",
+        "./access/deployment-config.js",
+        "./access/reporter-bootstrap.js",
+        "./access/error-reporter.js",
+        "./access/error-reporter.css",
+        "./access/error-reporter-adapter.js",
+        "./manual/",
+        "./manual/index.html",
+        "./icons/icon-32.png",
+        "./icons/icon-192.png",
+        "./icons/icon-512.png",
+        "./icons/apple-touch-icon.png",
+        "./config/brand-manifest.json",
+        "./config/platform-manifest.json",
+        "./assets/brand/school-logo.png",
+        "./ghrab-platform.consumer.json",
+        "./features/testlab.js",
+        "./features/preview-editor.js"
+      ]
+    }
+  ],
+  "unresolvedCacheWrites": [],
+  "cacheFirstDetected": true,
+  "structuralNetworkOnlyGuard": true,
+  "criticalAssetsInDeployment": [
+    "access/suite-session-cleanup.js",
+    "config/deployment.json",
+    "config/deployment.school-server.json"
+  ],
+  "findings": [],
+  "checkerRevision": "garp-2.5.1-r2-cache-write-coverage-fail-closed",
+  "note": "Static bounded analysis. PASS means no critical asset found in recognized Cache API write paths, all analyzed writes resolved/guarded, and deployed critical assets have structural isSecurityCriticalRequest -> networkOnlyNoStore routing. Does not replace SIM-07 or behavioral revocation tests."
+}

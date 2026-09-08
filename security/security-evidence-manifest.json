@@ -1,0 +1,330 @@
+{
+  "schema": "ghrab-security-evidence-manifest-v1",
+  "appId": "generator",
+  "version": "7.1.24",
+  "sourceRevision": null,
+  "sourcePackageSha256": null,
+  "createdAt": "2026-09-08T07:54:31.195Z",
+  "files": [
+    {
+      "path": "ai-assurance-fingerprint.json",
+      "size": 4142,
+      "sha256": "af1eeb5143b44f4655533527edcf05f94e630b6ff71e69f3d2d73eb3315c762f"
+    },
+    {
+      "path": "post-migration/action-pins-clean.txt",
+      "size": 79,
+      "sha256": "e3078841cd760f94600f98c2814e59f667614548f9dd2b210c8e3404428a9e91"
+    },
+    {
+      "path": "post-migration/ai-evidence-drift-check.txt",
+      "size": 103,
+      "sha256": "c1a4b3f1f3ce4646539431f99b7eb4981b5d4808d7c662debc8eaf5863402172"
+    },
+    {
+      "path": "post-migration/clean-build-attempt.txt",
+      "size": 597,
+      "sha256": "025e25ccaffa29de3ff5c1b5597296d283a34ad04863c200a53e4dcaf08d9aca"
+    },
+    {
+      "path": "post-migration/dependency-install-attempt.txt",
+      "size": 1974,
+      "sha256": "cf7ef86878ef8058ea6e66edb5853f202583606ed0801879e2a84be242ce514e"
+    },
+    {
+      "path": "post-migration/deployment-leak-public.json",
+      "size": 436,
+      "sha256": "d14ac1b1ff44a4a005cd796849e1e963745c8580c5c13b3306913f43ab2b0924"
+    },
+    {
+      "path": "post-migration/full-chain-exit-summary.txt",
+      "size": 37,
+      "sha256": "807e3a0b515156287cac403fc0a28ef3f561ae1dfb582fa5ac612780738a419a"
+    },
+    {
+      "path": "post-migration/full-npm-test-attempt.txt",
+      "size": 2040,
+      "sha256": "dc81a7f5d8a538faefbe2226710e1ba582bf7219875131116839863e6a09dca5"
+    },
+    {
+      "path": "post-migration/garp23-security.json",
+      "size": 3243,
+      "sha256": "5fe5aadea46379feb7a0044ff18aa21d7966efb5ae1564521558d0d287a892e7"
+    },
+    {
+      "path": "post-migration/garp251-selftest.txt",
+      "size": 71,
+      "sha256": "1bdcf73777e2299e7c5a1a8e0c8c65fd1833305d2f0d0e4894570a168994f277"
+    },
+    {
+      "path": "post-migration/gh02-sw-critical-precache-negative.txt",
+      "size": 1899,
+      "sha256": "e25231efdfd67da8ac3c3e157175e3d1b965956b72abcbd7a8051594fc764ce9"
+    },
+    {
+      "path": "post-migration/production-invariants.txt",
+      "size": 40,
+      "sha256": "2c852ccad68e44eb6a384e88c92f265ceb4b518a233d5e042e1103156f2ac007"
+    },
+    {
+      "path": "post-migration/sbom-drift-check.txt",
+      "size": 59,
+      "sha256": "a81d3f397016cc1fa7ed35a1f7959ddefce3d92f716a6c40a3f43c8f4deda58e"
+    },
+    {
+      "path": "post-migration/sensitive-clean.txt",
+      "size": 88,
+      "sha256": "a212250d5d3b58bfd47517e6a6fa43bbadef65325a54144c46b52dbe237866de"
+    },
+    {
+      "path": "post-migration/shnc01-secret-sentinel.txt",
+      "size": 113,
+      "sha256": "5138101e82990a22892e97f678a780df4432c50122f423e7e0bc3e8c4a15b37a"
+    },
+    {
+      "path": "post-migration/shnc07-resource-abuse.txt",
+      "size": 278,
+      "sha256": "ff5d1657ce1f53593a69a710fe1557c3657ba3bf35ba90687411c79e7230732a"
+    },
+    {
+      "path": "post-migration/shnc08-logging-canary.txt",
+      "size": 386,
+      "sha256": "adf2773bdc60d290467df9d337611632366eda9698decb0f174a15df355d25fb"
+    },
+    {
+      "path": "post-migration/shnc09-unpinned-action.txt",
+      "size": 156,
+      "sha256": "aca5a9463ab0fe66afd90d778180370a3e50ee79ce64e00244b7efbf54e9fc72"
+    },
+    {
+      "path": "post-migration/shnc12-auth-guard-mutation.txt",
+      "size": 91,
+      "sha256": "893bc00c194ea6488cfa2cc8ff48bfe2380b5767711267cb8095419dabc3bf73"
+    },
+    {
+      "path": "post-migration/shnc13-hostile-ai-output.txt",
+      "size": 527,
+      "sha256": "2d514c2070d3050c9733f7d9b3d5611f52ee80de6b167a56ea2c506cfe2f8017"
+    },
+    {
+      "path": "post-migration/shnc14-ai-evidence-invalidation.txt",
+      "size": 158,
+      "sha256": "b40d7c9b34eeedf5bd49fe39777c40f442fb72af06899c26a45c712e8f823440"
+    },
+    {
+      "path": "post-migration/source-structure.txt",
+      "size": 91,
+      "sha256": "663d6fd5bb2f83ca427816c12c04370f31919237502c78777ba0952664dbe1a6"
+    },
+    {
+      "path": "post-migration/static-regression.txt",
+      "size": 9249,
+      "sha256": "d6ca19ded2fc418761b9c031af6bfa9c5197e4ac61f5fcc86b622b1501de3bf9"
+    },
+    {
+      "path": "post-migration/suite-session-lifecycle.txt",
+      "size": 2537,
+      "sha256": "9bf96387334a56ceb2886b7cf8a9f5229481111c7e1ad6506ebf5920b929d109"
+    },
+    {
+      "path": "post-migration/sw-security-freeze.public.json",
+      "size": 1639,
+      "sha256": "2e4f2496d3b27cd59756135c43d474448fc8b326ce9463eb837efcad07af8c89"
+    },
+    {
+      "path": "post-migration/version-check.txt",
+      "size": 41,
+      "sha256": "ca951c7dee858a1508a4840532996eb8db80f021f1455b35d127f5c7d048fc58"
+    },
+    {
+      "path": "round-2/00-scope-and-provenance.txt",
+      "size": 550,
+      "sha256": "d035d8969a40d95940189c542b8b13b7ed2d97ce43eb9ad863d1d123a338cc3c"
+    },
+    {
+      "path": "round-2/garp25-prep-static.txt",
+      "size": 4761,
+      "sha256": "6d0beadcf8434189d646198f7342a702720592275a9d5dfd11a30c93e95de543"
+    },
+    {
+      "path": "round-2/n01-leak-scanner-controls.txt",
+      "size": 302,
+      "sha256": "9d277a2290e78e61db9139e371bedbd52aec35c45784923bfe21de183f8a1ffe"
+    },
+    {
+      "path": "round-2/n02-ai-fingerprint-per-file-negative-controls.txt",
+      "size": 770,
+      "sha256": "a8a5d32aada5f4cdde3f968ebaf742f5e9ec2d49239a31bea73618a8cf86f78c"
+    },
+    {
+      "path": "round-2/n03-sbom-quality.txt",
+      "size": 176,
+      "sha256": "cd48b3b9e927a0704187f076cea7a3cc80326f6b624ce7d2d16fa720ac20d0b7"
+    },
+    {
+      "path": "round-2/n04-deterministic-build.txt",
+      "size": 503,
+      "sha256": "067cd4177cc71fe204248490ccecc399c00d3a10948f0d02194e364add004dd3"
+    },
+    {
+      "path": "round-2/n05-assurance-links-implementation.txt",
+      "size": 687,
+      "sha256": "b76f8ee305b053cc3922d5a223fd4d265d7ec1248350fd7005cb164721148fca"
+    },
+    {
+      "path": "round-2/n06-url-context-callgraph.txt",
+      "size": 3722,
+      "sha256": "dec7d47799bdb8d17465f1fcb00e53cc7ab15534538975353305d98157be2885"
+    },
+    {
+      "path": "round-2/n07-ai-core-targeted-rewrite.txt",
+      "size": 228,
+      "sha256": "d7f8754fec074ff0d44c4402ddc9682b28908d5e8c7c6ee0a24609c0c2609796"
+    },
+    {
+      "path": "round-2/qa-browser.txt",
+      "size": 1020,
+      "sha256": "83fd0020a98026cd0ba0af157aae2887bb1e1377045cb3a931a4b55c00aebec5"
+    },
+    {
+      "path": "round-2/qa-quality.txt",
+      "size": 5375,
+      "sha256": "1bef17693d3df7daf31e5606c6c9ad510a8cca32a17caee5246f09c77cd36b42"
+    },
+    {
+      "path": "round-2/qa-xss.txt",
+      "size": 3475,
+      "sha256": "9a15917991160e16046d6145848ffca8cddd9a3b7623d0ed37778788e1879445"
+    },
+    {
+      "path": "round-2/test-matrix-local.txt",
+      "size": 795,
+      "sha256": "cca411a39eb99c67bab4fead136e5f5eacd0b20381bb039d000a04ecb8fd81f1"
+    },
+    {
+      "path": "round-3/00-scope.txt",
+      "size": 254,
+      "sha256": "5c6421e8247b1386e2fe5b7b2e92a2af48a0c573b43ddcd83c5e366edb9cea5b"
+    },
+    {
+      "path": "round-3/build-public.txt",
+      "size": 12833,
+      "sha256": "e55ee77ff4fe885eddac1fa162ff45d6c18eddbfd993c7b5dbde23403c6ef53b"
+    },
+    {
+      "path": "round-3/build-school-server.txt",
+      "size": 14060,
+      "sha256": "b24fecd5fa6c21181d401274490fc2ee32f7a5f27f347b7a9a96913cf68e7a6d"
+    },
+    {
+      "path": "round-3/garp25-selftest.txt",
+      "size": 71,
+      "sha256": "63c36f268d1b52d2ea7a2f509c2cc16d12cfe9bddedfbc5fa26a591d07bdd3d5"
+    },
+    {
+      "path": "round-3/n2-01-leak-scanner-matrix.txt",
+      "size": 477,
+      "sha256": "ef5ed70da4a2696e7a6fee95bbc655b23ae297fdc0634a7755ece46c9a2aa733"
+    },
+    {
+      "path": "round-3/n2-02-ai-fingerprint-controls.txt",
+      "size": 996,
+      "sha256": "5aef732a9946f523b4b0bf105e69c1d1e530b53abf889894f427b17a3bf37469"
+    },
+    {
+      "path": "round-3/n2-03-vendored-negative-control.txt",
+      "size": 309,
+      "sha256": "75c08eac1f58e35698ef2b94829b87c52762a0a47084ec385c8ff9849a64866f"
+    },
+    {
+      "path": "round-3/npm-ci-environment.txt",
+      "size": 598,
+      "sha256": "a68b43ad11c147d264e17f5ccfd20f31900e2198f6db96428d2bd47adab843ee"
+    },
+    {
+      "path": "round-3/targeted-static.txt",
+      "size": 33330,
+      "sha256": "e5790fdd8a9ad8342366ce6439d4655c918dbff1870807ef5de2f1287cd7d83d"
+    },
+    {
+      "path": "round-3/vendored-public.txt",
+      "size": 963,
+      "sha256": "c5e46822a934832c66c96bd7961ae5b58d0be8e3a9a964d411b8595006cea946"
+    },
+    {
+      "path": "round-3/vendored-school-server.txt",
+      "size": 964,
+      "sha256": "e05b08f51694b8f084457df27c9ea750028063b2d748ddb322aabf5ff05182c5"
+    },
+    {
+      "path": "runtime-hardening/ai-fingerprint-check.txt",
+      "size": 103,
+      "sha256": "95cf094a08f4d9d7fcc0936a9e6993287a6822132527e0b6b7899efa9763374b"
+    },
+    {
+      "path": "runtime-hardening/garp23-86.txt",
+      "size": 3243,
+      "sha256": "5fe5aadea46379feb7a0044ff18aa21d7966efb5ae1564521558d0d287a892e7"
+    },
+    {
+      "path": "runtime-hardening/garp25-selftest.txt",
+      "size": 71,
+      "sha256": "b790c16deedb12a2a3befce8133f799a6d56cdc38cde3ad34ed929af67ec388b"
+    },
+    {
+      "path": "runtime-hardening/n3-01-offline-runtime.txt",
+      "size": 499,
+      "sha256": "1284fb92692463c70153fa61c1e2e78aba58904db1388cd6c3f49f49b450d84a"
+    },
+    {
+      "path": "runtime-hardening/n3-01-sw-negative-controls.txt",
+      "size": 6941,
+      "sha256": "978dd11d683fb0de42aa6954ccc72bef9b090d71c4f1ac461358267bcdc2a1f7"
+    },
+    {
+      "path": "runtime-hardening/n3-01-sw-static-policy.txt",
+      "size": 2183,
+      "sha256": "14188ea9d92a2293a62c3b2906a5995477b015aec4bffa81fc1b51ad5cc099b5"
+    },
+    {
+      "path": "runtime-hardening/n3-02-scope-negative-controls.txt",
+      "size": 530,
+      "sha256": "158dbb1c70a6822ac1e8e6d36610bc6f3ec03699f1433251fa49a6aa6de409ac"
+    },
+    {
+      "path": "runtime-hardening/n3-03-conditional-root-negative.txt",
+      "size": 1042,
+      "sha256": "050e71895508d95a672ba0c1f5901dd0ba1235e7ffeaf1acdac057da8eb0d93f"
+    },
+    {
+      "path": "runtime-hardening/node-static-regression.txt",
+      "size": 7225,
+      "sha256": "e5bb9fa3eecf55ed2fccd701b16177e02c3a2ac1455f5a3031578e1c827530bd"
+    },
+    {
+      "path": "runtime-hardening/npm-ci-environment.txt",
+      "size": 518,
+      "sha256": "4d7d9b89dac479721fb2b6605d3a960fdef8ef7597d39f9179c4073555c11423"
+    },
+    {
+      "path": "runtime-hardening/npm-ci.txt",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runtime-hardening/sbom-check.txt",
+      "size": 59,
+      "sha256": "a81d3f397016cc1fa7ed35a1f7959ddefce3d92f716a6c40a3f43c8f4deda58e"
+    },
+    {
+      "path": "runtime-hardening/suite-session-20.txt",
+      "size": 2537,
+      "sha256": "9bf96387334a56ceb2886b7cf8a9f5229481111c7e1ad6506ebf5920b929d109"
+    },
+    {
+      "path": "runtime-hardening/version-check.txt",
+      "size": 41,
+      "sha256": "3ea6281b03db5e9e7f5461e092e7e918b729d02ce92b1f7de376895a9d1b2eaf"
+    }
+  ]
+}

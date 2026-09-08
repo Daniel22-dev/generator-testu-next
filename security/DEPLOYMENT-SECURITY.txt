@@ -1,0 +1,63 @@
+GARP 2.5.1 – DEPLOYMENT SECURITY PROFILE
+Application: generator 7.1.24
+
+CURRENT STATIC/GITHUB PROFILE
+- deployment class: static PWA; signed-permit access; direct Gemini transport; local provider key allowed.
+- no application server executes app code.
+- allowed origin policy: self + configured GitHub Pages origin.
+- telemetry mode: local; diagnostics/content must not be silently transmitted.
+- access LKG max offline age: 24 h, fail closed when stale.
+- service worker routing is two-class: authorization/revocation/integrity/runtime-config assets are network-only/no-store with no cache fallback; `access/suite-session-cleanup.js` and `ghrab/ghrab-platform.js` are freshness-sensitive support layers using network-first/no-store with install-cache fallback so shared-device cleanup/platform controls remain available offline.
+- current source candidate is NOT production-approved until independent review and full regression.
+
+SCHOOL SERVER TARGET (SHIELD-LIVE REQUIREMENTS; CURRENTLY NOT TESTED)
+Identity/runtime
+- dedicated non-root service identity for app/gateway; no interactive admin account for service process.
+- filesystem/read-only root for application artifact where platform permits; writable dirs explicitly isolated/minimal.
+- no release private signing key on school server, app container, CI build workspace, repo, logs or deployment package.
+- session cookies: Secure, HttpOnly, SameSite appropriate to same-origin design; session invalidation server-authoritative.
+- deny by default when session/access/integrity status cannot be verified.
+
+Network/egress
+- ingress only through approved TLS reverse proxy; current TLS policy/certificate automation to be validated live.
+- app browser connects only same-origin in school profile.
+- gateway egress allowlist only to approved AI provider endpoints/models; DNS/HTTP proxy rules documented externally.
+- block arbitrary URL fetch/tool access; application is AGENTIC=PARTIAL only because teacher may enable the fixed provider-side Gemini url_context tool. No generic fetch/MCP/local tool loop may be added without re-audit.
+
+Secrets
+- provider API secret stored in approved server secret facility/environment injection, never browser localStorage in school profile.
+- no secrets in static config, logs, SBOM, provenance, release integrity manifest, source/deployment ZIP.
+- rotate/revoke provider and release credentials by documented operational procedure.
+
+Resource/rate limits
+- enforce request max <= app budget and reverse-proxy/server body limits.
+- per-user/per-app rate limit, concurrency and queue caps.
+- gateway timeout <= documented budget and cancellation propagation where supported.
+- bounded logs with no prompt/model-output/student-content body logging by default.
+
+Headers/browser
+- serve CSP and headers from public/config/security-headers.json or stricter policy.
+- confirm actual response headers with DAST/header capture; repository config alone is not PASS.
+- unsafe-inline remains an explicit compatibility exception; unsafe-eval must remain absent.
+
+Storage/privacy
+- establish 30-day server retention only if approved and actually implemented; source template is not proof.
+- deletion/logout/end-work must be tested with real server session and shared devices.
+- backup/restore must define what application/student content is included, retention, encryption and deletion propagation.
+- re-identification/pseudonymized D3 content follows school data governance; pseudonymization is not anonymization.
+
+Release integrity
+- build source and deployment remain separate.
+- create release-integrity.json over exact deployment, artifactDigest, detached Ed25519 signature, trust root/keyId and registry.
+- app guard/integrity service must reject unknown/revoked/rollback/mixed-version releases before protected runtime executes.
+- run deployment leak scan, SW security freeze, evidence manifest and release gate on the exact deployed bytes.
+
+Backups/recovery
+- documented recovery for deployment artifact, trust root/registry and server state.
+- recovery must not require copying signer private key onto server.
+- conduct restore/rollback drill; rollback may only target a still-trusted registry release, never simply “older is allowed”.
+
+STATUS
+SHIELD-LIVE: NOT TESTED
+RI-LIVE: NOT TESTED
+School server production: NOT APPROVED

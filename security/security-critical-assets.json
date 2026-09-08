@@ -1,0 +1,22 @@
+{
+  "schema": "ghrab-sw-security-assets-v2",
+  "networkOnly": [
+    "app-guard",
+    "access-control",
+    "revoked-access.json",
+    "runtime-config",
+    "config/deployment.json",
+    "config/deployment.school-server.json",
+    "release-integrity.json",
+    "release-integrity.sig",
+    "integrity-status"
+  ],
+  "networkFirstFallback": [
+    "ghrab/ghrab-platform.js",
+    "access/suite-session-cleanup.js"
+  ],
+  "rationale": {
+    "networkOnly": "Authorization, revocation and integrity state must never fall back to cached bytes.",
+    "networkFirstFallback": "Freshness-sensitive executable support layers fetch no-store first, but must remain available offline from the last known installed copy to preserve platform and shared-device cleanup controls."
+  }
+}

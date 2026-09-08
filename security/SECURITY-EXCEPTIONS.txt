@@ -1,0 +1,33 @@
+GARP 2.5.1 – SECURITY EXCEPTION / DEBT REGISTER
+Application: generator 7.1.24
+
+EX-01
+Finding/control: CSP script-src/style-src unsafe-inline
+Severity: MEDIUM
+Scope: static and school-server header templates
+Reason exception is necessary: current application still contains inline handlers/styles; immediate removal would be broad runtime refactor outside delta GARP migration.
+Security impact: weakens CSP protection against some injection classes.
+Reachability/exploitability: mitigated but not eliminated by escaping/sanitization, no unsafe-eval, output validators and existing XSS ratchets.
+Compensating controls: unsafe-eval absent; Acorn parsing; P5 XSS checks; CSP policy checked by script when dependencies available.
+Owner role: application maintainer
+Approved by role: NOT YET OPERATIONALLY APPROVED; recorded as candidate debt
+Review/expiry trigger: next major modularization or before stricter school-server policy
+Closure condition: remove inline handlers/styles and unsafe-inline from effective served CSP; full browser regression PASS.
+
+EX-02
+Finding/control: real D3 student data with external direct-provider profile
+Severity: HIGH
+Scope: public/static profile
+Reason exception is necessary: no exception is granted in this candidate.
+Security impact: potential sensitive-information disclosure/provider retention risk.
+Compensating controls: pseudonymization of structured differentiation roster, UI warning, explicit user action.
+Decision: REÁLNÁ STUDENTSKÁ DATA = NOT APPROVED until organizational/privacy/provider evidence is completed.
+
+EX-03
+Finding/control: binary asset rights/provenance
+Severity: MEDIUM
+Scope: school logo and generated PWA icons
+Reason exception is necessary: source snapshot contains bytes/hash/owner branding metadata but not a standalone rights attestation.
+Decision: no legal-compliance claim; production handoff requires owner/school confirmation.
+
+No HIGH/CRITICAL technical scanner finding is being waived by this file. Unperformed tests remain NOT TESTED, not exceptions.

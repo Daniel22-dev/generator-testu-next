@@ -1,0 +1,43 @@
+GARP 2.5.1 – SHIELD NEGATIVE CONTROLS
+Application: generator 7.1.24
+All mutations are synthetic/disposable. No mutation remains in the candidate.
+
+SHNC-01 PASS       synthetic secret -> source scanner nonzero; clean scanner PASS.
+SHNC-02 PASS       synthetic deployment byte tamper -> RI verifier FAIL (GARP selftest).
+SHNC-03 PASS       synthetic provenance subject/artifact digest tamper -> provenance verifier FAIL (GARP selftest).
+SHNC-04 PASS       .env.production / large-bundle secret / source map -> deployment leak scanner FAIL; clean public scan PASS.
+SHNC-05 PASS       valid older release against newer approved registry -> rollback DENY (GARP selftest).
+SHNC-06 PASS       added/mixed inventory file -> RI verifier FAIL (GARP selftest inventory mutation).
+SHNC-07 PASS       1025-byte text against synthetic exact Core maxPartBytes=1024 -> PAYLOAD_TOO_LARGE, zero network calls. Server rate/concurrency remains LIVE NOT TESTED.
+SHNC-08 PASS       exact reporter sanitization removes synthetic email/API-key/prompt canaries. Full browser ZIP export remains NOT TESTED.
+SHNC-09 PASS       pinned GitHub Action changed to @main -> action pin policy FAIL; clean 18/18 PASS.
+SHNC-10 PASS       evidence file tamper after manifest -> evidence verifier FAIL (GARP selftest).
+SHNC-11 NOT TESTED served header removal requires a current served build/staging endpoint.
+SHNC-12 PASS       disposable permit bootstrap weakening -> production-readiness authorization invariant FAIL.
+SHNC-13 PASS       hostile script/img/javascript/tool text is escaped by exact secure-student renderer primitive; structural sandbox/XSS controls also PASS. Full browser XSS regression NOT TESTED.
+SHNC-14 PASS       all 16 tracked AI boundary files individually mutated -> stored AI assurance fingerprint rejected as stale; automatic scope control rejects untracked .js/.mjs boundary sources under src/ or public/, including direct Gemini endpoint/x-goog-api-key transport tokens.
+SHNC-15 NOT TESTED actual Integrity Service / policy alert channel is not live in this source migration.
+SHNC-16 PASS       revoked keyId signed with disposable test key -> trust verifier DENY (GARP selftest).
+SHNC-17 NOT TESTED Limited AGENTIC=PARTIAL url_context capability; no live-model capability-escalation test in this round.
+SHNC-18 NOT TESTED Limited AGENTIC=PARTIAL url_context capability; arbitrary tool/capability escalation is structurally absent but not behaviorally tested against a live model.
+SHNC-19 N/A        No agent memory or cross-user agent state exists; url_context is stateless provider-side retrieval.
+SHNC-20 N/A        No autonomous local tool loop/cascade exists; url_context is a single bounded provider-side tool.
+
+GH-02 / N3-01 v2 routing controls:
+- strict authorization/revocation/integrity asset synthetically inserted into precache -> SW checker CRITICAL/nonzero;
+- cleanup/platform fallback asset removed from install cache -> SW checker FAIL;
+- cleanup/platform branch changed from networkFirst to networkOnly -> SW checker FAIL;
+- clean 7.1.24 source policy -> PASS with separate networkOnly and networkFirstFallback structural guards.
+
+Round-3 residual controls:
+N2-01 round-3 PASS  legitimate `token: ` concatenation remains clean while password/secret/api_key values with special characters are detected.
+N2-03 round-3 PASS  all 11 declared vendored copies are checked when school-server profile exists; school-only copies are explicitly declared and reported as profile-not-built during public-only checks.
+
+N3 runtime-hardening negative controls (7.1.24)
+- N3-01: support layer removed from install cache -> SW checker FAIL.
+- N3-01: support layer routed network-only instead of networkFirst -> SW checker FAIL.
+- N3-01: stale revoked-access/release-integrity artificially inserted into cache while offline -> runtime regression still rejects; no cache fallback.
+- N3-02: untracked AI boundary in public/*.js -> fingerprint scope FAIL.
+- N3-02: untracked AI boundary in src/*.mjs -> fingerprint scope FAIL.
+- N3-02: direct generativelanguage/x-goog-api-key path bypassing helpers -> fingerprint scope FAIL.
+- N3-03: conditional vendored copy outside its whenRootExists prefix -> vendored checker FAIL.

@@ -1,0 +1,20 @@
+N-06 URL Context call graph and declared provider tools
+src/js/08-manual-editor.js:455:        var sData = await callGeminiJSON(singlePrompt, filePack.parts, { urlContext: useUrlContext, operation:'exercise-generation' });
+src/js/08-manual-editor.js:462:      var aiData = await callGeminiJSON(aiPrompt, filePack.parts, { urlContext: useUrlContext, operation:'exercise-generation' });
+src/js/08-manual-editor.js:498:      singleData = await callGeminiJSON(singlePrompt + correctiveNote, filePack.parts, { urlContext: useUrlContext, operation:correctiveNote?'generation-repair':'exercise-generation' });
+src/js/08-manual-editor.js:552:      singleData = await callGeminiJSON(singlePrompt + correctiveNote, filePack.parts, { urlContext: useUrlContext, operation:correctiveNote?'generation-repair':'exercise-generation' });
+src/js/08-manual-editor.js:578:      batchData = await callGeminiJSON(batchPrompt + batchCorrectiveNote, filePack.parts, { urlContext: useUrlContext, operation:batchCorrectiveNote?'generation-repair':'exercise-generation' });
+src/js/08-manual-editor.js:693:      const data = await callGeminiJSON(prompt + correctiveNote, filePack.parts, {urlContext:useUrlContext,operation:correctiveNote?'generation-repair':'test-generation'});
+src/js/07-gemini.js:330:  const useTools = !!(opts && opts.urlContext);
+src/js/07-gemini.js:334:  // (url_context) — Gemini to odmítne (HTTP 400 INVALID_ARGUMENT: "Tool use with a
+src/js/07-gemini.js:345:  if (useTools) body.tools = [{ url_context:{} }];
+public/ai-operations.json:29:        "url_context"
+public/ai-operations.json:31:      "providerToolActivation": "teacher-opt-in; provider may invoke only the fixed url_context tool; no local tool loop or side effects"
+public/ai-operations.json:52:        "url_context"
+public/ai-operations.json:54:      "providerToolActivation": "teacher-opt-in; provider may invoke only the fixed url_context tool; no local tool loop or side effects"
+public/ai-operations.json:75:        "url_context"
+public/ai-operations.json:77:      "providerToolActivation": "teacher-opt-in; provider may invoke only the fixed url_context tool; no local tool loop or side effects"
+security/SECURITY-THREAT-MODEL.txt:29:TB-03A | Teacher-enabled URL Context -> provider-side web retrieval -> model context | D0-D3 external web content | explicit teacher opt-in; fixed url_context tool only | indirect prompt injection from attacker-controlled pages, tool-scope drift, malformed non-JSON output | trust fencing in system instruction, URL source marked lower-trust, providerTools registry, no arbitrary tool/MCP, strict post-parse schema validation; responseMimeType is intentionally unavailable in this provider mode | src/js/07-gemini.js, 08-manual-editor.js, public/ai-operations.json | live-model tool behavior NOT TESTED; AGENTIC=PARTIAL
+security/SECURITY-ASSURANCE-CROSSWALK.txt:12:OWASP Agentic Top 10 2026 / ACS 2026 | SH-AG | limited provider-side tool capability | AGENTIC=PARTIAL; teacher-opt-in Gemini url_context is the only model-usable provider tool; no local tool loop, writes or side effects
+security/SECURITY-ASSURANCE-CROSSWALK.txt:17:LLM03 Excessive Agency -> AGENTIC=PARTIAL; teacher can enable a single fixed provider-side url_context tool. No arbitrary tool selection, local agent loop, writes or application side effects.
+security/SECURITY-ASSURANCE-CROSSWALK.txt:24:LLM10 Improper Output Handling -> schema validation, escaping/sanitization, Acorn parser, XSS tests. With url_context enabled Gemini cannot use responseMimeType=application/json, so JSON parse/repair plus strict post-parse schema validation is the compensating boundary; provider-side tool behavior remains behaviorally NOT TESTED without a live model.

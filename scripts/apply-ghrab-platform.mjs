@@ -12,6 +12,9 @@ const consumer = JSON.parse(fs.readFileSync(consumerPath, 'utf8'));
 const vendor = path.join(root, 'vendor', `ghrab-platform-${consumer.platform.version}`);
 const releaseManifestPath = path.join(vendor, `ghrab-platform-manifest-${consumer.platform.version}.json`);
 const release = JSON.parse(fs.readFileSync(releaseManifestPath, 'utf8'));
+const requestedBuildTime = String(process.env.GHRAB_BUILD_TIME || '').trim();
+if (requestedBuildTime && Number.isNaN(Date.parse(requestedBuildTime))) throw new Error('GHRAB_BUILD_TIME musí být platný ISO-8601 čas');
+const buildTime = requestedBuildTime ? new Date(requestedBuildTime).toISOString() : new Date().toISOString();
 
 if (!fs.existsSync(dist)) throw new Error('P3 postprocessor: chybí dist/.');
 if (consumer.schema !== 'ghrab-platform-consumer-v1') throw new Error('P3 postprocessor: neplatné consumer schema.');
@@ -198,7 +201,6 @@ if (fs.existsSync(swPath)) {
   let sw = fs.readFileSync(swPath, 'utf8');
   sw = sw.replace(/\n\/\* GHRAB_PLATFORM_P3_START \*\/[\s\S]*?\/\* GHRAB_PLATFORM_P3_END \*\/\n?/g, '\n');
   const platformAssets = [
-    './ghrab/ghrab-platform.js',
     './ghrab/ghrab-platform.css',
     './ghrab/ghrab-artifact-envelope-v1.schema.json',
     './ghrab/ghrab-app-registry-v2.schema.json',
@@ -261,7 +263,7 @@ fs.writeFileSync(path.join(dist, 'platform-build-info.json'), `${JSON.stringify(
   cacheName: consumer.cache.name,
   processedHtmlFiles: htmlCount,
   qualityContracts: { accessibility: consumer.quality.accessibilityContract, performance: consumer.quality.performanceContract, modules: consumer.quality.moduleContract },
-  builtAt: new Date().toISOString(),
+  builtAt: buildTime,
 }, null, 2)}\n`);
 
 console.log(`[P3] ${consumer.appId} ${consumer.appVersion}: platform ${consumer.platform.version}, HTML ${htmlCount}, cache ${consumer.cache.name}`);

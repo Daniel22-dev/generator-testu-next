@@ -1,6 +1,6 @@
 # Generátor interaktivních testů
 
-**Aktuální verze:** 7.1.22  
+**Aktuální verze:** 7.1.24  
 **Platforma:** GHRAB Platform 1.1.2 · QA etapa P5
 
 
@@ -8,7 +8,7 @@ Produkční serverless/PWA aplikace pro učitele. Připravuje procvičovací i k
 
 ## Stav vydání
 
-Verze **7.1.22** je kandidát migrovaný na GHRAB Platform 1.1.2 pro koordinovanou ecosystem release wave; před nasazením vyžaduje nový nezávislý review cyklus. Blokující nálezy druhého kola C2-01 až C2-05 jsou opravené, nezávisle ověřené a regresně kryté; build, platformní konformita, headless kontrola, `npm test`, GARP harness, quality gate a dependency audit prošly. Současný technický stav je **OVERALL AMBER**, protože stále chybí povinné provozní důkazy v reálném browser lifecycle, behaviorální live-model AI-RED, centrální authorization/guard, síťový payload/retry, service-worker lifecycle a key-custody/repository controls. Verze není schválena pro reálná studentská data.
+Verze **7.1.24** je runtime-hardening kandidát navazující na nezávisle auditovanou 7.1.23. Reaguje na N3-01 (offline dostupnost suite cleanup/platform vrstvy při zachování fail-closed revokace) a současně uzavírá levné tooling mezery N3-02/N3-03. Změna vyžaduje nový nezávislý regresní review cyklus, protože `public/sw.js` je distribuovaný runtime. Lokální Node regresní a negativní kontroly jsou součástí repozitáře; plný `npm ci`/browser řetězec musí zopakovat nezávislý auditor. Současný strop zůstává **OVERALL AMBER**, dokud neproběhne behaviorální live-model AI-RED a SHIELD-LIVE/RI-LIVE na školním serveru. Verze není schválena pro reálná studentská data.
 
 Katalog AI Studia může současně zobrazovat opatrnější organizační stav „Připraveno k řízenému ověřování“. Nejde o rozpor: aplikace je technicky produkční, ale katalog nesmí před rozhodnutím školy tvrdit, že je formálně schválena pro plošný provoz.
 
@@ -136,7 +136,7 @@ Service worker nespouští `skipWaiting` automaticky při instalaci. Přechod č
 
 ## Omezení rozsahu
 
-GitHub Pages profil 7.1.22 sám o sobě nemá školní SSO, databázi, serverovou úschovu API klíče ani neobejitelnou serverovou autorizaci. Rozpracovaný studentský pokus se po reloadu nebo zavření stránky plně neobnoví. Již stažený HTML test nelze vzdáleně zneplatnit. Tyto hranice řeší `PROVOZNI-PRAVIDLA.md` a `SECURITY.md`.
+GitHub Pages profil 7.1.24 sám o sobě nemá školní SSO, databázi, serverovou úschovu API klíče ani neobejitelnou serverovou autorizaci. Rozpracovaný studentský pokus se po reloadu nebo zavření stránky plně neobnoví. Již stažený HTML test nelze vzdáleně zneplatnit. Tyto hranice řeší `PROVOZNI-PRAVIDLA.md` a `SECURITY.md`.
 
 ## Napojení na AI Studio GHRAB
 

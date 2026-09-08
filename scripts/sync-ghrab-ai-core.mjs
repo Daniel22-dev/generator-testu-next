@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { rewriteAiCoreVersionFile } from './ai-core-version-rewrite.mjs';
 
 const ROOT = process.cwd();
 const TRUSTED_ORIGIN = process.env.TRUSTED_STUDIO_ORIGIN || 'https://daniel22-dev.github.io';
@@ -75,13 +76,13 @@ const oldBuildId = config.buildId;
 for (const relative of config.versionFiles || []) {
   const file = path.join(ROOT, relative);
   if (!fs.existsSync(file)) throw new Error(`Configured version file missing: ${relative}`);
-  let text = fs.readFileSync(file, 'utf8');
-  text = text.split(oldVersion).join(manifest.coreVersion);
-  text = text.split(oldBuildId).join(manifest.buildId);
-  if (oldContract !== String(manifest.contractVersion)) {
-    text = text.replace(/("contractVersion"\s*:\s*")\d+("|\.)/g, `$1${manifest.contractVersion}$2`);
-  }
-  fs.writeFileSync(file, text);
+  const text = fs.readFileSync(file, 'utf8');
+  const rewritten = rewriteAiCoreVersionFile(relative, text, {
+    oldVersion, newVersion: manifest.coreVersion,
+    oldBuildId, newBuildId: manifest.buildId,
+    oldContract, newContract: String(manifest.contractVersion)
+  });
+  fs.writeFileSync(file, rewritten);
 }
 config.coreVersion = manifest.coreVersion;
 config.contractVersion = String(manifest.contractVersion);

@@ -1,0 +1,13 @@
+GARP 2.5.1 – DAST / SERVED SECURITY SUMMARY
+Application: generator 7.1.24
+Date: 2026-09-07
+
+STATUS: NOT TESTED.
+
+Reason:
+- clean current dist/browser runtime could not be produced without dependency installation;
+- no school-server staging endpoint exists in this migration;
+- repository security-headers.json is configuration evidence, not proof of served response headers.
+
+Consequently served CSP/header removal SHNC-11, browser revocation/SW behavior, live app-guard,
+actual TLS/session cookie behavior and school-server DAST remain NOT TESTED.

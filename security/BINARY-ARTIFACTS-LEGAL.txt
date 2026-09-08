@@ -1,0 +1,15 @@
+GARP 2.5.1 – BINARY ARTIFACT / LEGAL PROVENANCE INVENTORY
+Application: generator 7.1.24
+
+Path | SHA-256 | Technical identity | Source/provenance known in repo | Rights status in this audit
+public/assets/brand/school-logo.png | 300396a48cc36d8c2abda0aea673273d4d985476ba88fb0430630ef89ac86770 | PNG 384x384 | canonical brand asset; brand manifest owner=Gymnázium, Ostrava-Hrabůvka, author metadata=Daniel Baláž | owner/permission attestation NOT TESTED
+vendor/ghrab-platform-1.1.2/school-logo.png | same hash | byte-identical vendor copy | GHRAB Platform 1.1.2 vendor asset | inherits same unresolved rights attestation
+public/icons/icon-32.png | 93f9d5a2e7425543b4ec606ffbbbfc0c6cf4184cee3072541751b88b78e92adb | PNG 32x32 | repository PWA asset | standalone creation/rights evidence NOT TESTED
+public/icons/apple-touch-icon.png | bd3e3136a189ff4908756f54d640c7c97038e6e68bab6029ab2238d7abb2b8c1 | PNG 180x180 | repository PWA asset | standalone creation/rights evidence NOT TESTED
+public/icons/icon-192.png | b6ec6b074ac2f681c4d6e4456c8b9038ac65bd2d859fe3021aacd67b8e3fcc4c | PNG 192x192 | repository PWA asset | standalone creation/rights evidence NOT TESTED
+public/icons/icon-512.png | 16fa00ffeb411a8b033a8a7f8c2a9022f5b150385ab3b2bdc420eeaac5b431bf | PNG 512x512 | repository PWA asset | standalone creation/rights evidence NOT TESTED
+public/icons/icon-maskable-512.png | f98df46086ea4938664604a10f496b28a0c0899aa8d4d7dda06e0de452b01449 | PNG 512x512 | repository PWA asset | standalone creation/rights evidence NOT TESTED
+
+Third-party JavaScript dependencies are source/build dependencies represented by package-lock.json and the CycloneDX SBOM. Build copies Acorn 8.17.0 browser bundle plus its MIT license into dist when npm dependencies are available.
+
+Gate note: this inventory does not establish copyright/trademark permission. Before school/public production, the responsible owner must attest that the school logo and derived/app icons may be distributed in this product context.

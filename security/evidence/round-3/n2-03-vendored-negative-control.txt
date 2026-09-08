@@ -1,0 +1,11 @@
+N2-03 actual school-profile drift mutation
+MUTATED_EXIT=1 EXPECTED=nonzero
+  "status": "FAIL",
+  "drift": 1,
+      "issue": "DRIFT",
+      "detail": "dist-school-server/ghrab/ghrab-platform.js",
+RESTORED_EXIT=0 EXPECTED=0
+  "status": "PASS",
+  "checkedCopies": 11,
+  "profileCopiesNotBuilt": 0,
+  "drift": 0,

@@ -1,0 +1,8 @@
+{
+  "components": 113,
+  "namedNodeModules": 0,
+  "uniquePurls": 113,
+  "withHashes": 113,
+  "allHaveHashes": true
+}
+✅ CycloneDX 1.7 SBOM odpovídá lockfile: 113 komponent.

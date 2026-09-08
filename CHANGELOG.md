@@ -1,3 +1,20 @@
+## 7.1.24 — Service Worker offline privacy hardening (2026-09-08)
+
+- Uzavřen auditní nález N3-01: `suite-session-cleanup.js` a `ghrab-platform.js` používají network-first s `cache: no-store` pokusem a install-cache fallbackem, takže online se aktualizují a offline zůstává zachována cleanup/platform vrstva.
+- Skutečné autorizační, revokační a release-integrity artefakty zůstávají network-only bez cache fallbacku.
+- Přidán behaviorální Node regresní test Service Workeru: online freshness, offline fallback a negativní kontrola stale revokace/integrity v cache.
+- Uzavřeny N3-02/N3-03: AI fingerprint scope pokrývá `src/` i `public/`, `.js` i `.mjs` a přímé Gemini transportní tokeny; `whenRootExists` je fail-closed svázán s prefixem deklarované kopie.
+- Business logika generátoru, prompt assembly, provider/model konfigurace a datový model nejsou změněny.
+- Verze 7.1.24 je kandidát pro nezávislé ověření; SHIELD-LIVE / RI-LIVE / behaviorální AIR zůstávají NOT TESTED bez školního serveru a živého modelu.
+
+## 7.1.23 — GARP 2.5.1 SHIELD-PREP source candidate (2026-09-07)
+
+- Přidán GARP 2.5.1 TOOLING-R2 release-integrity/SHIELD tooling, autoritativní seznam security-critical assetů a fail-closed statické GARP brány v hlavních testovacích řetězcích.
+- Přidán deterministický build-time hook `GHRAB_BUILD_TIME` pro reprodukovatelnost; bez proměnné zůstává běžné chování build timestampu zachováno.
+- Přidán CycloneDX 1.7 SBOM generátor/snapshot, threat model, deployment security profil, AI resource budget, crosswalk, exception/debt registr a evidence index.
+- Runtime promptů, provider/model policy, auth/session business logika, storage/data flow, AI tool scope a network egress destinace nebyly funkčně měněny. Service worker však nově fail-closed směruje security-critical session/platform/integrity assety přes network-only/no-store před cache-first; jde tedy o změnu bezpečnostní distribuční hranice, která vyžaduje revalidaci relevantních session/SW kontrol.
+- Kandidát není produkční release: plný dependency install/build/browser/DAST a school-server LIVE zůstávají k nezávislému ověření.
+
 ## 7.1.22 — Platform 1.1.2 Studio manifest alignment (2026-09-06)
 
 - Zdrojový Studio manifest byl srovnán s reálným runtime/consumer stavem: Platform 1.1.2 a range `>=1.1.2 <2.0.0`.

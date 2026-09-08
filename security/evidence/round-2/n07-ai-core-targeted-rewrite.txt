@@ -1,0 +1,12 @@
+
+> generator-testu@7.1.23 garp25:sync-rewrite
+> node scripts/test-ai-core-version-rewrite.mjs
+
+{
+  "status": "PASS",
+  "checks": [
+    "targeted-json-keys-only",
+    "brandVersion-preserved",
+    "build-CORE_VERSION-only"
+  ]
+}

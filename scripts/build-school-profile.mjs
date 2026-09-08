@@ -5,6 +5,9 @@ import process from "node:process";
 const root = process.cwd();
 const sourceDist = path.join(root, "dist");
 const targetDist = path.join(root, "dist-school-server");
+const requestedBuildTime = String(process.env.GHRAB_BUILD_TIME || '').trim();
+if (requestedBuildTime && Number.isNaN(Date.parse(requestedBuildTime))) throw new Error('GHRAB_BUILD_TIME musí být platný ISO-8601 čas');
+const buildTime = requestedBuildTime ? new Date(requestedBuildTime).toISOString() : new Date().toISOString();
 if (!fs.existsSync(sourceDist)) throw new Error("Chybí dist/. Nejprve spusťte standardní build.");
 fs.rmSync(targetDist, { recursive: true, force: true });
 fs.cpSync(sourceDist, targetDist, { recursive: true });
@@ -72,7 +75,7 @@ writeJson(path.join(targetDist, "server-ready-build-info.json"), {
   version: pkg.version,
   phase: "P0-template",
   profile: "school-server",
-  builtAt: new Date().toISOString(),
+  builtAt: buildTime,
   activeAuthMode: deployment.authMode,
   activeAiTransport: deployment.aiTransport,
   telemetryMode: deployment.telemetryMode,

@@ -1,13 +1,12 @@
 const GHRAB_SW_CONTRACT='ghrab-service-worker-v1';
 /* GHRAB service-worker contract v1 · update activation is user-controlled. */
-const CACHE_NAME = "ghrab-generator-v7.1.22";
+const CACHE_NAME = "ghrab-generator-v7.1.24";
 const CACHE_PREFIXES = ["ghrab-generator-v", "generator-testu-pwa-v"];
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
   "./access/access-gate.css",
-  "./access/suite-session-cleanup.js",
   "./access/deployment-config.js",
   "./access/reporter-bootstrap.js",
   "./access/error-reporter.js",
@@ -23,6 +22,8 @@ const CORE_ASSETS = [
   "./config/platform-manifest.json",
   "./assets/brand/school-logo.png",
   "./ghrab-platform.consumer.json",
+  "./access/suite-session-cleanup.js",
+  "./ghrab/ghrab-platform.js",
   "./features/testlab.js",
   "./features/preview-editor.js"
 ];
@@ -35,12 +36,6 @@ self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
     await cache.addAll(CORE_ASSETS);
-    const optionalAssets = [];
-    if (optionalAssets.length) {
-      const results = await Promise.allSettled(optionalAssets.map((asset) => cache.add(asset)));
-      const failed = results.filter((item) => item.status === 'rejected').length;
-      if (failed) console.warn(`[GHRAB SW] ${failed} volitelných assetů nebylo uloženo do offline cache.`);
-    }
   })());
 });
 
@@ -81,13 +76,30 @@ async function cacheFirst(request) {
   return response;
 }
 
-function isRuntimeRequest(url, scopePath) {
+async function networkOnlyNoStore(request) {
+  return fetch(request, { cache: 'no-store' });
+}
+
+function isSecurityCriticalRequest(url, scopePath) {
   const relative = url.pathname.slice(scopePath.length);
   return relative === 'runtime-config.js' ||
     relative === 'config/deployment.json' ||
+    relative === 'config/deployment.school-server.json' ||
     relative === 'config/deployment.school-server-p0.json' ||
     relative === 'config/deployment.school-server.example.json' ||
+    relative.endsWith('/app-guard.js') ||
+    relative.endsWith('/access-control.js') ||
+    relative.endsWith('/revoked-access.json') ||
+    relative.endsWith('/release-integrity.json') ||
+    relative.endsWith('/release-integrity.sig') ||
+    relative.includes('integrity-status') ||
     /^(?:api|auth|session|health)(?:\/|$)/.test(relative);
+}
+
+function isSecurityFreshnessFallbackRequest(url, scopePath) {
+  const relative = url.pathname.slice(scopePath.length);
+  return relative === 'access/suite-session-cleanup.js' ||
+    relative === 'ghrab/ghrab-platform.js';
 }
 
 self.addEventListener('fetch', (event) => {
@@ -96,7 +108,15 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
   const scopePath = new URL('./', self.location.href).pathname;
-  if (!url.pathname.startsWith(scopePath) || request.cache === 'no-store' || isRuntimeRequest(url, scopePath)) return;
+  if (!url.pathname.startsWith(scopePath) || request.cache === 'no-store') return;
+  if (isSecurityCriticalRequest(url, scopePath)) {
+    event.respondWith(networkOnlyNoStore(request));
+    return;
+  }
+  if (isSecurityFreshnessFallbackRequest(url, scopePath)) {
+    event.respondWith(networkFirst(request));
+    return;
+  }
   if (request.mode === 'navigate') {
     const fallback = url.pathname.includes('/manual/') ? './manual/index.html' : './index.html';
     event.respondWith(networkFirst(request, fallback));

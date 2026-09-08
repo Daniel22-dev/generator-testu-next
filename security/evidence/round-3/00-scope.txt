@@ -1,0 +1,3 @@
+GARP 2.5.1 SHIELD corrective round 3
+Scope: N2-01, N2-02, N2-03 only; no application runtime/business logic changes intended.
+Baseline for auditor must include original 7.1.22 ZIP SHA-256 fc8aa18df996b8f74a4ce112434bb17d484f2556dfc986cdba0b30c04aa832d6.

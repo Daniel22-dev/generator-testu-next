@@ -1,0 +1,10 @@
+[public-js-helper-token] exit=1
+❌ AI assurance fingerprint scope is incomplete. Untracked boundary files: public/access/__n3_scope_probe.js
+
+[src-mjs-helper-token] exit=1
+❌ AI assurance fingerprint scope is incomplete. Untracked boundary files: src/__n3_scope_probe.mjs
+
+[src-js-direct-provider-token] exit=1
+❌ AI assurance fingerprint scope is incomplete. Untracked boundary files: src/js/__n3_direct_provider_probe.js
+
+✅ AI assurance fingerprint current: 5501807b47f4c6852a2f8570d6770ab7395d38f8c2e9ac1dcebed87c76424c28

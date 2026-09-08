@@ -1,0 +1,17 @@
+GARP 2.5.1 – BUILD PROVENANCE / REBUILD EQUIVALENCE
+Application: generator 7.1.24
+Date: 2026-09-07
+
+Actual clean build: NOT TESTED.
+Actual deployment artifact SHA-256: NOT AVAILABLE.
+Actual build provenance: NOT TESTED.
+Actual provenance verification: NOT TESTED.
+Actual rebuild equivalence: NOT TESTED.
+
+Why: npm dependency retrieval is unavailable (registry DNS EAI_AGAIN); package acorn@8.17.0 is
+required by the locked build/CSP parser and was not fabricated/substituted with a different version.
+
+Prepared controls:
+- scripts/build.mjs supports explicit GHRAB_BUILD_TIME for deterministic timestamp injection.
+- GARP create/verify provenance tooling is present.
+- synthetic provenance policy/tamper selftests PASS inside the 43/43 GARP tooling selftest.

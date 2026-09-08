@@ -1,0 +1,6 @@
+GARP 2.5.1 Release Integrity status – generator 7.1.24 corrective round 3
+
+Independent round-2 audit: RI-PREP PASS over exact npm-ci dist; RI-04 deterministic rebuild PASS; unified PREP gate GREEN.
+Round-3 changes are limited to assurance tooling/config/documentation and must be independently revalidated over a fresh exact npm-ci dist.
+Local exact npm ci is unavailable because registry.npmjs.org returns EAI_AGAIN; local surrogate builds are not official RI-PREP evidence.
+RI-LIVE / Integrity Service / school-server live deployment remain NOT TESTED.

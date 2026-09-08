@@ -1,0 +1,66 @@
+GARP 2.5.1 – SECURITY THREAT MODEL / ATTACK SURFACE
+Application: Generátor testů
+Version: 7.1.24
+Source input SHA-256: fc8aa18df996b8f74a4ce112434bb17d484f2556dfc986cdba0b30c04aa832d6
+Date: 2026-09-08
+Data class: D3
+AGENTIC: PARTIAL
+
+ASSETS
+- identity/session: signed access permit in static profile; planned server session in school profile; suite-session lifecycle tombstones.
+- student/teacher data: teacher materials, test configuration, potential student names/codes, answers, results, generated exports.
+- AI context/output: teacher prompts/material excerpts, pseudonymized differentiation context, generated tests and repair/verification output.
+- secrets: optional local/session Gemini API key in public profile; security codes; release private key MUST NOT be present.
+- release trust: source hash, vendor hashes, lockfile, release-integrity manifest/signature/trust root/registry in release ceremony.
+- availability/budget: AI request size/tokens/calls/timeouts; PWA cache; browser resources.
+
+ACTORS
+- authorized teacher: legitimate app user, may import malicious/untrusted content unintentionally.
+- student/unprivileged user: may tamper with exported student HTML/result files, try bypass/replay or inject content.
+- external content author: controls uploaded documents/text and can attempt indirect prompt injection.
+- AI-assisted attacker: crafts payloads targeting prompt boundaries, output handling or generated HTML.
+- server admin/root: trusted operational role in future school server; must be separated from release signer where practical.
+- external provider: receives allowed AI requests in public profile; is a separate trust/data boundary.
+
+TRUST BOUNDARIES
+TB-01 | Browser UI -> local state | D0-D3 content | app validation/namespace | prototype pollution, stale/replayed state, cross-app deletion | allowlists, size caps, namespaced storage, PC-01 cleanup | data-manifest + GARP23 harness | medium residual on shared-device discipline
+TB-02 | Uploaded text/docs/media -> prompt context | D1-D3 | teacher action + file validation | indirect prompt injection, oversized inputs, sensitive disclosure | trust fencing, extension/size caps, 24k text cap, AIR controls | src/js/05-form-fields.js, 07-gemini.js, GARP23 corpus | model behavior residual
+TB-03 | Browser -> external Gemini | D1-D3 possible | explicit generate action + deployment policy | sensitive egress, credential exposure, unbounded use | pseudonymization for structured roster, data notice, request/token/call limits, no telemetry content | deployment.json, ai-operations.json, AI resource budget | D3 egress not approved by this candidate
+TB-03A | Teacher-enabled URL Context -> provider-side web retrieval -> model context | D0-D3 external web content | explicit teacher opt-in; fixed url_context tool only | indirect prompt injection from attacker-controlled pages, tool-scope drift, malformed non-JSON output | trust fencing in system instruction, URL source marked lower-trust, providerTools registry, no arbitrary tool/MCP, strict post-parse schema validation; responseMimeType is intentionally unavailable in this provider mode | src/js/07-gemini.js, 08-manual-editor.js, public/ai-operations.json | live-model tool behavior NOT TESTED; AGENTIC=PARTIAL
+TB-04 | Browser -> school gateway | D1-D3 | future server session | auth bypass, cross-origin egress, server leakage | same-origin enforced, local provider key disabled, fail-closed readiness | school deployment config | SHIELD-LIVE NOT TESTED
+TB-05 | Generated AI output -> app/exports | untrusted model output | schema/validation/sanitization | XSS, script injection, malformed scoring logic | JSON/schema validators, Acorn CSP-safe parser, XSS ratchet, no eval/new Function | existing P5/GARP23 tests | full current browser chain NOT TESTED
+TB-06 | AI Studio -> child app access/session | credential/security state | signed permit / suite lifecycle | stale permit, logout replay, SW cached auth state | signed permit, suite-session generation cleanup, authoritative SW critical list | session 20/20; GARP23 86/86 | browser revocation NOT TESTED
+TB-07 | source -> build -> deployment | code + dependencies | lockfile/build tooling | dependency substitution, leaked source/secrets, tampered dist | pinned actions, exact lockfile, SBOM, leak scan, RI tooling, build provenance hook | package-lock, GARP tools | exact clean build + RI-PREP PASS in independent round-2 audit; round-3 delta requires revalidation
+TB-08 | release signer -> trust root/registry | release authority | Ed25519 | key theft, rollback, mixed version | detached signatures, keyId, registry, anti-rollback, no private key in repo | GARP tooling + custody doc | actual org key custody NOT TESTED
+TB-09 | Service worker -> Cache Storage/network | app shell/security state | SW routing | stale/revoked security artifact served from cache OR cleanup/platform layer unavailable offline | v2 critical-assets policy: network-only for auth/revocation/integrity; network-first + install-cache fallback for cleanup/platform; static checker + offline Node regression | security-critical-assets.json + test-sw-offline-failsafe.mjs | browser SIM-07 dynamic revocation/offline lifecycle NOT TESTED
+
+ATTACK SURFACE
+Entry | Method | Auth | Data class | Side effect | Relevant controls
+App startup | GET/PWA/SW | signed permit/static or future server session | D0 | load protected runtime | fail-closed access, CSP, SW policy
+Teacher text/forms | UI | teacher | D1-D3 | local state + AI prompt | validation, trust fencing, limits
+File upload | File API | teacher | D1-D3 | local parse/media AI part | extension/type/size limits, content fences
+Import JSON | file import | teacher | D1-D3 | state replacement | type/version/checksum/allowlist, 512 KiB cap
+AI generate | HTTPS | teacher action | D1-D3 | external provider/gateway call | allowlisted operation, resource budget, privacy preflight
+Generated HTML/ZIP/PDF/CSV | download | teacher | D2-D3 possible | creates offline artifacts | no secrets, secure student modes, output validation
+Student test runtime | offline/browser | student | D2-D3 | answers/results | tamper controls, sealed/secure variants, no answer-key leakage target
+Teacher verifier | offline/browser | teacher | D3 | result verification | cryptographic verification for secure mode
+Error reporter | UI/export | teacher | diagnostics | diagnostic ZIP/email handoff | allowlisted diagnostics; no content by default
+Service worker | fetch/install | app | D0/security state | cache/network | critical-asset freeze, cache namespace
+
+TOP THREATS
+T-01 | indirect prompt injection from teacher-supplied documents | untrusted source enters AI context | instruction hijack/data leakage | trust boundary markers, system instruction, AIR corpus | GARP23 86/86 structural suite | residual model risk | PARTIAL PASS; live-model behavior not rerun
+T-02 | sensitive student disclosure to provider | D3 content present | privacy breach | pseudonymization, warning, explicit action, school gateway design | data manifest | unresolved org/provider evidence | AMBER
+T-03 | generated-output XSS/code execution | malicious model output | browser compromise | validators, escaping, Acorn parse, CSP, XSS QA | inherited P5 controls | current full browser chain missing | AMBER
+T-04 | SW stale/revoked access or offline loss of cleanup/platform | old security asset cached OR support script unavailable | authorization/privacy availability impact | v2 two-class policy: strict assets network-only; cleanup/platform network-first with last-known cache fallback | static checker + 9-check offline Node regression | registered-SW browser drill missing | AMBER
+T-05 | supply-chain substitution/tampered build | dependency/build/release compromise | malicious deployment | exact lockfile, pinned Actions, SBOM, provenance/RI tooling, detached signature | exact round-2 clean build/RI-PREP independently PASS; round-3 tooling delta targeted tests PASS | round-3 exact rebuild/signing revalidation pending; LIVE absent | AMBER
+T-06 | release key leakage | key used on build host/repo | forged release | signer separation, private key prohibition, leak scan | key custody doc | organization key not provisioned | AMBER/NOT TESTED operationally
+T-07 | cross-app/shared-device residual data | logout/end-work incomplete | privacy breach | namespace ownership, suite generation cleanup, target-scoped handoff deletion | suite-session 20/20; GARP23 | live multi-tab/browser still required | PASS static/VM, live AMBER
+T-08 | unbounded AI cost/resource consumption | repeated large workflows | availability/cost | request/part/token caps, 180s timeout, per-workflow provider-call limits, retries bounded | ai-operations + resource budget | no server rate limits in static profile | AMBER
+T-09 | student result/export tampering | student controls local file/browser | integrity of assessment | secure offline mode, verifier, hashes/signatures where supported | inherited tests | cannot claim global anti-replay without server | accepted architectural residual
+T-10 | malicious/oversized import | crafted JSON/prototype keys | state corruption/XSS/DoS | exact type/version, allowlist, 512KiB cap, sanitization | data manifest + GARP23 | low residual | PASS inherited
+
+SERVICE-WORKER / REVOCATION DELIVERY NOTE
+- Most application security logic is in the built index.html, which may be served from the PWA cache as an offline fallback.
+- Future school-server revocation MUST therefore use a separately addressable security-critical resource guarded by network-only/no-store semantics; a revocation that depends only on replacing cached index.html is not an acceptable control.
+- `access/suite-session-cleanup.js` and `ghrab/ghrab-platform.js` are deliberately NOT treated as revocation truth. They fetch fresh bytes first with `cache: no-store`, but fall back to the install/last-known cache when offline, because silently losing cleanup/platform controls on a shared device is a larger privacy/availability risk than using the last-known support implementation.
+- This exception does not apply to revoked-access, access-control/app-guard, release-integrity, integrity-status, runtime-config or API/auth/session/health state; those remain fail-closed network-only.

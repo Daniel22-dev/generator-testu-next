@@ -1,0 +1,6 @@
+N-05 correction:
+- security/garp25/tools/verify-assurance-links.mjs exists and verifies buildProvenanceSha256, sbomSha256, evidenceManifestSha256 and deploymentPackageSha256.
+- release-gate.mjs records assurance-links as FAIL if the verifier is missing; the step can no longer disappear silently.
+- school profile requires all four links; prep reports missing undeclared links as AMBER, while declared-without-input or mismatch is FAIL.
+- selftest includes positive full-chain link verification plus tampered-SBOM negative control.
+Actual local release-gate exercise is recorded separately under security/release-integrity/round2-* to avoid circular inclusion in this evidence manifest.

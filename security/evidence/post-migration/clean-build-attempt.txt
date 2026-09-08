@@ -1,0 +1,19 @@
+
+> generator-testu@7.1.23 prebuild
+> npm run check:embedded-script-terminators && npm run check:studio-manifest
+
+
+> generator-testu@7.1.23 check:embedded-script-terminators
+> node scripts/check-embedded-script-terminators.mjs
+
+✅ Embedded-script terminator guard: PASS (src/js, src/features)
+
+> generator-testu@7.1.23 check:studio-manifest
+> node scripts/check-studio-manifest-template.mjs
+
+✅ Studio manifest template: generator 7.1.23, cache ghrab-generator-v7.1.23
+
+> generator-testu@7.1.23 build
+> node scripts/build.mjs
+
+❌ chybí lokální CSP-safe JavaScript parser Acorn; spusť npm ci

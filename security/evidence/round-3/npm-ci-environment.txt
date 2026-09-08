@@ -1,0 +1,8 @@
+ROUND-3 LOCAL DEPENDENCY LIMITATION
+Date: 2026-09-08
+Exact npm ci was attempted after removing node_modules.
+Result: registry.npmjs.org requests failed with EAI_AGAIN; the install did not complete.
+
+For targeted local build/CSP checks only, node_modules/acorn was a temporary symlink to the preinstalled Acorn 8.15.0 available in this execution environment.
+The source candidate contains neither node_modules nor dist/dist-school-server.
+Independent round-2 auditor previously completed exact npm ci with Acorn 8.17.0 and full npm test / qa:p5:ci PASS; round-3 exact revalidation remains required.

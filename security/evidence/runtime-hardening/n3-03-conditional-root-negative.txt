@@ -1,0 +1,47 @@
+NEGATIVE conditional root mismatch exit=1
+{
+  "status": "FAIL",
+  "canonicalRoot": "studio",
+  "components": [
+    {
+      "id": "platform",
+      "sha256": "43045e07e709b38e470076ff8235b68ca6e63400498c0aa847f6e743f230166e"
+    }
+  ],
+  "declaredCopies": 1,
+  "checkedCopies": 1,
+  "profileCopiesNotBuilt": 0,
+  "conditionalCopies": [
+    {
+      "path": "public/platform.js",
+      "whenRootExists": "dist-school-server",
+      "status": "INVALID_CONDITIONAL_ROOT"
+    }
+  ],
+  "drift": 1,
+  "findings": [
+    {
+      "severity": "HIGH",
+      "appId": "probe",
+      "component": "platform",
+      "issue": "conditional-copy-root-mismatch",
+      "detail": "public/platform.js !< dist-school-server"
+    }
+  ]
+}
+{
+  "status": "PASS",
+  "canonicalRoot": "studio",
+  "components": [
+    {
+      "id": "platform",
+      "sha256": "43045e07e709b38e470076ff8235b68ca6e63400498c0aa847f6e743f230166e"
+    }
+  ],
+  "declaredCopies": 1,
+  "checkedCopies": 1,
+  "profileCopiesNotBuilt": 0,
+  "conditionalCopies": [],
+  "drift": 0,
+  "findings": []
+}

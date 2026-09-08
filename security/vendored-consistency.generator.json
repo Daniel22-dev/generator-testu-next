@@ -1,0 +1,79 @@
+{
+  "schema": "ghrab-vendored-consistency-v1",
+  "canonicalRoot": "..",
+  "components": [
+    {
+      "id": "platform-js",
+      "canonical": "vendor/ghrab-platform-1.1.2/ghrab-platform.js",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "platform-css",
+      "canonical": "vendor/ghrab-platform-1.1.2/ghrab-platform.css",
+      "severity": "HIGH"
+    },
+    {
+      "id": "artifact-envelope-schema",
+      "canonical": "vendor/ghrab-platform-1.1.2/ghrab-artifact-envelope-v1.schema.json",
+      "severity": "HIGH"
+    },
+    {
+      "id": "app-registry-schema",
+      "canonical": "vendor/ghrab-platform-1.1.2/ghrab-app-registry-v2.schema.json",
+      "severity": "HIGH"
+    },
+    {
+      "id": "school-logo",
+      "canonical": "vendor/ghrab-platform-1.1.2/school-logo.png",
+      "severity": "HIGH"
+    }
+  ],
+  "consumers": [
+    {
+      "appId": "generator",
+      "root": "..",
+      "copies": {
+        "platform-js": [
+          "dist/ghrab/ghrab-platform.js",
+          {
+            "path": "dist-school-server/ghrab/ghrab-platform.js",
+            "whenRootExists": "dist-school-server"
+          }
+        ],
+        "platform-css": [
+          "dist/ghrab/ghrab-platform.css",
+          {
+            "path": "dist-school-server/ghrab/ghrab-platform.css",
+            "whenRootExists": "dist-school-server"
+          }
+        ],
+        "artifact-envelope-schema": [
+          "dist/ghrab/ghrab-artifact-envelope-v1.schema.json",
+          {
+            "path": "dist-school-server/ghrab/ghrab-artifact-envelope-v1.schema.json",
+            "whenRootExists": "dist-school-server"
+          }
+        ],
+        "app-registry-schema": [
+          "dist/ghrab/ghrab-app-registry-v2.schema.json",
+          {
+            "path": "dist-school-server/ghrab/ghrab-app-registry-v2.schema.json",
+            "whenRootExists": "dist-school-server"
+          }
+        ],
+        "school-logo": [
+          "public/assets/brand/school-logo.png",
+          "dist/assets/brand/school-logo.png",
+          {
+            "path": "dist-school-server/assets/brand/school-logo.png",
+            "whenRootExists": "dist-school-server"
+          }
+        ]
+      }
+    }
+  ],
+  "assuranceScope": {
+    "internalConsistency": "PASS when all declared copies for built profiles match vendored canonical bytes",
+    "crossRepositoryCanonical": "NOT TESTED here; canonicalRoot is this application vendored snapshot, not AI-Studio-GHRAB repository"
+  }
+}

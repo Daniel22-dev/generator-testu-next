@@ -1,0 +1,17 @@
+GARP 2.5.1 corrective round – local surrogate PREP gate evidence
+App: generator 7.1.23
+
+IMPORTANT: this is tooling evidence over a local surrogate dist, not an official exact lockfile release build.
+Exact npm ci remains unavailable here because registry.npmjs.org DNS cannot be resolved.
+
+Positive unified gate: EXIT 0 / GREEN
+Negative control (tampered SBOM): EXIT 1 / RED; assurance-links reports sbom hash mismatch
+Artifact digest: 16242c82a32cb8d623ea26e826113a325aebccb4a253ef7a380ebe769639cd12
+Assurance links verified: build provenance, SBOM, evidence manifest, deployment package
+SW security freeze: PASS
+Vendored consistency: PASS
+Deployment leaks: PASS
+Release signature: PASS with disposable Ed25519 PREP key
+Disposable private key after test: DELETED
+
+No private key or official deployment artifact is committed in this source candidate.

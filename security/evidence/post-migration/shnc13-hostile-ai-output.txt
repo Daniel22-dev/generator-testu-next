@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "control": "SHNC-13",
+  "input": "<script>globalThis.PWNED=1</script><img src=x onerror=alert(1)> javascript:alert(1) tool:delete-all",
+  "escaped": "&lt;script&gt;globalThis.PWNED=1&lt;/script&gt;&lt;img src=x onerror=alert(1)&gt; javascript:alert(1) tool:delete-all",
+  "unauthorizedAction": false,
+  "note": "Exact secure-student renderer escape primitive. GARP23 additionally checks opaque sandbox/output boundary structurally; full browser XSS regression remains NOT TESTED without clean build."
+}

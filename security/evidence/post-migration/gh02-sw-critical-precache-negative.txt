@@ -1,0 +1,52 @@
+{
+  "status": "FAIL",
+  "serviceWorker": "/mnt/data/garp_work/negative-controls/sw-mut/public/sw.js",
+  "criticalListSource": "/mnt/data/garp_work/negative-controls/sw-mut/security/critical.json",
+  "precachedEntries": 22,
+  "precacheSources": [
+    {
+      "source": "addAll:expression",
+      "entries": [
+        "./ghrab/ghrab-platform.js",
+        "./",
+        "./index.html",
+        "./manifest.webmanifest",
+        "./access/access-gate.css",
+        "./access/deployment-config.js",
+        "./access/reporter-bootstrap.js",
+        "./access/error-reporter.js",
+        "./access/error-reporter.css",
+        "./access/error-reporter-adapter.js",
+        "./manual/",
+        "./manual/index.html",
+        "./icons/icon-32.png",
+        "./icons/icon-192.png",
+        "./icons/icon-512.png",
+        "./icons/apple-touch-icon.png",
+        "./config/brand-manifest.json",
+        "./config/platform-manifest.json",
+        "./assets/brand/school-logo.png",
+        "./ghrab-platform.consumer.json",
+        "./features/testlab.js",
+        "./features/preview-editor.js"
+      ]
+    }
+  ],
+  "unresolvedCacheWrites": [],
+  "cacheFirstDetected": true,
+  "structuralNetworkOnlyGuard": true,
+  "criticalAssetsInDeployment": [
+    "ghrab/ghrab-platform.js"
+  ],
+  "findings": [
+    {
+      "severity": "CRITICAL",
+      "issue": "security-critical asset je v Cache API write/precache ceste",
+      "detail": "./ghrab/ghrab-platform.js (vzor: ghrab/ghrab-platform.js)"
+    }
+  ],
+  "checkerRevision": "garp-2.5.1-r2-cache-write-coverage-fail-closed",
+  "note": "Static bounded analysis. PASS means no critical asset found in recognized Cache API write paths, all analyzed writes resolved/guarded, and deployed critical assets have structural isSecurityCriticalRequest -> networkOnlyNoStore routing. Does not replace SIM-07 or behavioral revocation tests."
+}
+MUTATED_EXIT=1
+EXPECTED=nonzero

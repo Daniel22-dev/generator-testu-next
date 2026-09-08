@@ -1,0 +1,3 @@
+❌ .github/workflows/p4-release.yml:17: externí GitHub Action není připnutá plným commit SHA (actions/checkout@main).
+MUTATED_EXIT=1
+EXPECTED=nonzero

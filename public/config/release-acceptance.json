@@ -2,8 +2,8 @@
   "schema": "ghrab-release-acceptance-v1",
   "stage": "P5",
   "appId": "generator",
-  "appVersion": "7.1.22",
-  "releaseStatus": "platform-1.1.2-suite-session-ecosystem-wave-candidate-pending-independent-review",
+  "appVersion": "7.1.24",
+  "releaseStatus": "garp-2.5.1-shield-prep-source-candidate-pending-independent-review",
   "primaryRuntime": {
     "mode": "standalone-github-pages",
     "serverRequired": false,
@@ -38,13 +38,13 @@
     "sourceRepositoriesExcludedFromSchoolOperationalPackage": true,
     "legalTermsRequireSeparateAgreement": true
   },
-  "revision": "GARP-2.3-PLATFORM-1.1.2-SUITE-SESSION-WAVE",
+  "revision": "GARP-2.5.1-SHIELD-TOOLING-R2",
   "runtimeAudit": {
     "required": true,
     "scriptsExecuted": false,
     "partialStaticVmExecuted": true,
     "browserRuntimeExecuted": false,
-    "transport": "pending-local-regression-and-independent-review",
-    "note": "Platform 1.1.2 suite-session migration candidate. Not production-approved; E-01 remains ecosystem-open until all relevant child applications are migrated and jointly tested. Synthetic test data only."
+    "transport": "pending-clean-build-full-regression-and-independent-review",
+    "note": "GARP 2.5.1 SHIELD source candidate. Static inherited GARP 2.3 controls were re-run locally; clean npm build/full browser chain and school-server LIVE remain NOT TESTED. Synthetic test data only."
   }
 }

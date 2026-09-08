@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "control": "SHNC-08",
+  "input": "error student.fixture@example.test api_key=ANON_KEY_TOKEN prompt: ANON_PROMPT_TOKEN",
+  "output": "error [e-mail odstraněn] api_key=[odstraněno] prompt: [obsah odstraněn]",
+  "leaked": [],
+  "note": "Pure production sanitization path; full browser ZIP/evidence export remains NOT TESTED without clean build/browser chain."
+}

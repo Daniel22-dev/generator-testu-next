@@ -1,0 +1,3 @@
+❌ AI assurance fingerprint je zastaralý: změnila se model/provider/system-instruction/operation/corpus evidence boundary.
+MUTATED_EXIT=1
+EXPECTED=nonzero

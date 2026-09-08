@@ -1,0 +1,146 @@
+
+> generator-testu@7.1.23 garp25:prep-static
+> npm run garp25:selftest && npm run garp25:sync-rewrite && npm run garp25:sbom:check && npm run garp25:ai-evidence:check && npm run garp25:sw && npm run garp25:vendored && npm run garp25:leaks
+
+
+> generator-testu@7.1.23 garp25:selftest
+> node security/garp25/tools/selftest-garp251.mjs
+
+{
+  "status": "PASS",
+  "checks": 47,
+  "passed": 47,
+  "failed": []
+}
+
+> generator-testu@7.1.23 garp25:sync-rewrite
+> node scripts/test-ai-core-version-rewrite.mjs
+
+{
+  "status": "PASS",
+  "checks": [
+    "targeted-json-keys-only",
+    "brandVersion-preserved",
+    "build-CORE_VERSION-only"
+  ]
+}
+
+> generator-testu@7.1.23 garp25:sbom:check
+> node scripts/generate-cyclonedx-sbom.mjs security/sbom/generator-testu-7.1.23.cdx.json --check
+
+✅ CycloneDX 1.7 SBOM odpovídá lockfile: 113 komponent.
+
+> generator-testu@7.1.23 garp25:ai-evidence:check
+> node scripts/generate-ai-assurance-fingerprint.mjs security/evidence/ai-assurance-fingerprint.json --check
+
+✅ AI assurance fingerprint current: 269ed52494856b7425c10d7a1a393295b799fb93b1c77f9e6a4157b646ac29e3
+
+> generator-testu@7.1.23 garp25:sw
+> node security/garp25/tools/check-sw-security-freeze.mjs dist/sw.js dist security/security-critical-assets.json
+
+{
+  "status": "PASS",
+  "serviceWorker": "dist/sw.js",
+  "criticalListSource": "security/security-critical-assets.json",
+  "precachedEntries": 25,
+  "precacheSources": [
+    {
+      "source": "addAll:expression",
+      "entries": [
+        "./",
+        "./index.html",
+        "./manifest.webmanifest",
+        "./access/access-gate.css",
+        "./access/deployment-config.js",
+        "./access/reporter-bootstrap.js",
+        "./access/error-reporter.js",
+        "./access/error-reporter.css",
+        "./access/error-reporter-adapter.js",
+        "./manual/",
+        "./manual/index.html",
+        "./icons/icon-32.png",
+        "./icons/icon-192.png",
+        "./icons/icon-512.png",
+        "./icons/apple-touch-icon.png",
+        "./config/brand-manifest.json",
+        "./config/platform-manifest.json",
+        "./assets/brand/school-logo.png",
+        "./ghrab-platform.consumer.json",
+        "./features/testlab.js",
+        "./features/preview-editor.js"
+      ]
+    },
+    {
+      "source": "map-add:GHRAB_PLATFORM_P3_ASSETS",
+      "entries": [
+        "./ghrab/ghrab-platform.css",
+        "./ghrab/ghrab-artifact-envelope-v1.schema.json",
+        "./ghrab/ghrab-app-registry-v2.schema.json",
+        "./ghrab/ghrab-platform-manifest-1.1.2.json",
+        "./assets/brand/school-logo.png",
+        "./ghrab-platform.consumer.json"
+      ]
+    }
+  ],
+  "unresolvedCacheWrites": [],
+  "cacheFirstDetected": true,
+  "structuralNetworkOnlyGuard": true,
+  "criticalAssetsInDeployment": [
+    "access/suite-session-cleanup.js",
+    "config/deployment.json",
+    "config/deployment.school-server.json",
+    "ghrab/ghrab-platform.js"
+  ],
+  "findings": [],
+  "checkerRevision": "garp-2.5.1-r2-cache-write-coverage-fail-closed",
+  "note": "Static bounded analysis. PASS means no critical asset found in recognized Cache API write paths, all analyzed writes resolved/guarded, and deployed critical assets have structural isSecurityCriticalRequest -> networkOnlyNoStore routing. Does not replace SIM-07 or behavioral revocation tests."
+}
+
+> generator-testu@7.1.23 garp25:vendored
+> node security/garp25/tools/check-vendored-consistency.mjs security/vendored-consistency.generator.json
+
+{
+  "status": "PASS",
+  "canonicalRoot": "..",
+  "components": [
+    {
+      "id": "platform-js",
+      "sha256": "199d03d9dc9263a9e74ed1f1102df0324f3b63e78704f1c70aeacec5feec530c"
+    },
+    {
+      "id": "platform-css",
+      "sha256": "eb465488df46f3d1672d721094800b0be3eb1278924b7699873a483f130b07ad"
+    },
+    {
+      "id": "artifact-envelope-schema",
+      "sha256": "8edeaaadd72c7bf60285440dd59eb31d0e7139755e1e4642d5ab457816e46d58"
+    },
+    {
+      "id": "app-registry-schema",
+      "sha256": "47c797999eb93fbd918b968b90a8f8545f938db486fe635b19efcc7936b5672f"
+    },
+    {
+      "id": "school-logo",
+      "sha256": "300396a48cc36d8c2abda0aea673273d4d985476ba88fb0430630ef89ac86770"
+    }
+  ],
+  "checkedCopies": 5,
+  "drift": 0,
+  "findings": []
+}
+
+> generator-testu@7.1.23 garp25:leaks
+> node security/garp25/tools/scan-deployment-leaks.mjs dist
+
+{
+  "status": "PASS",
+  "root": "/mnt/data/garp_fix/candidate/generator-testu-7.1.23-GARP2.5-SHIELD-KANDIDAT/dist",
+  "info": [
+    "INFO-binary-not-scanned:assets/brand/school-logo.png",
+    "INFO-binary-not-scanned:icons/apple-touch-icon.png",
+    "INFO-binary-not-scanned:icons/icon-192.png",
+    "INFO-binary-not-scanned:icons/icon-32.png",
+    "INFO-binary-not-scanned:icons/icon-512.png",
+    "INFO-binary-not-scanned:icons/icon-maskable-512.png"
+  ]
+}

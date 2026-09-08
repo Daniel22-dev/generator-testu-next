@@ -1,0 +1,15 @@
+Corrective test matrix / local environment
+npm ci: NOT RUN TO COMPLETION - registry.npmjs.org DNS unavailable in this environment.
+npm test: reached headless check; blocked by missing jsdom caused by unavailable exact npm install.
+garp25:prep-static: PASS
+check-csp: PASS
+check-precache: PASS
+verify-platform: PASS
+qa-quality: PASS 35/35
+qa-browser: PASS
+qa-xss: PASS
+workflow browser: NOT_READY due managed Chromium URLBlocklist
+reporter static: PASS 54/54; browser portion NOT_READY due managed URLBlocklist
+qa-runtime: NOT TESTED/ENV BLOCKED (runtime readiness timeout under local browser policy)
+qa-axe: NOT TESTED/ENV BLOCKED (axe-core 4.12.1 unavailable without npm ci)
+qa-release/acceptance: expected downstream FAIL due missing runtime/axe reports; not classified as product regression.

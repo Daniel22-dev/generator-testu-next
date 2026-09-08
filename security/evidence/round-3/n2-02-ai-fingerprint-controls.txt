@@ -1,0 +1,19 @@
+TRACKED_COUNT=16
+MUTATION_DETECTED src/js/01-core.js rc=1
+MUTATION_DETECTED src/js/03-ui-render.js rc=1
+MUTATION_DETECTED src/js/05-form-fields.js rc=1
+MUTATION_DETECTED src/js/07-gemini.js rc=1
+MUTATION_DETECTED src/js/07z-ai-core-integration.js rc=1
+MUTATION_DETECTED src/js/08-manual-editor.js rc=1
+MUTATION_DETECTED src/js/09-selftest-keycheck.js rc=1
+MUTATION_DETECTED src/js/12-prompt-builder.js rc=1
+MUTATION_DETECTED src/js/13a-secure-helpers.js rc=1
+MUTATION_DETECTED src/js/50-cs-module.js rc=1
+MUTATION_DETECTED src/features/preview-editor.js rc=1
+MUTATION_DETECTED src/features/testlab.js rc=1
+MUTATION_DETECTED public/ai-operations.json rc=1
+MUTATION_DETECTED ghrab-ai-core.consumer.json rc=1
+MUTATION_DETECTED vendor/ghrab-ai-core-1.0.0/ghrab-ai-core-manifest-1.0.0.json rc=1
+MUTATION_DETECTED security/garp23-ai-red-corpus.json rc=1
+SCOPE_NEGATIVE_CONTROL_PASS rc=1
+❌ AI assurance fingerprint scope is incomplete. Untracked boundary files: src/js/99-round3-untracked-boundary.js

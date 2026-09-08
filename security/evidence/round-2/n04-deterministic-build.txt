@@ -1,0 +1,9 @@
+N-04 deterministic build timestamp propagation
+Local environment limitation: exact Acorn 8.17.0 unavailable; surrogate build-time Acorn:
+8.15.0
+Two fixed-time dist hash inventories diff:
+NO DIFFERENCE
+School-profile build-info SHA run 1:
+6b68881f21ebf5792e5a0eb238d7c1b4714773ca40ff36589664b20091a77993  dist-school-server/server-ready-build-info.json
+School-profile build-info SHA run 2:
+6b68881f21ebf5792e5a0eb238d7c1b4714773ca40ff36589664b20091a77993  dist-school-server/server-ready-build-info.json

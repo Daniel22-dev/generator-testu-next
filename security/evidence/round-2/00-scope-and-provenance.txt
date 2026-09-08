@@ -1,0 +1,7 @@
+GARP 2.5.1 SHIELD corrective round after independent audit (round 1)
+App: generator-testu 7.1.23
+Baseline input ZIP 7.1.22 SHA-256: fc8aa18df996b8f74a4ce112434bb17d484f2556dfc986cdba0b30c04aa832d6
+Pre-fix 7.1.23 candidate SHA-256: 7c046a0f41f0fe3d0970131df3cc2e673c4d74c8cdfbcb5214de0a6ed5de9700
+Independent audit SHA-256: 8eeccf915e934aea37ebcee9f8317c7371fb0cde8a38d94c64050a818467f4ec
+Real student data: NOT USED.
+Corrective policy: fix confirmed audit findings without weakening fail-closed controls or altering unrelated runtime/business logic.

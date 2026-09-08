@@ -1,0 +1,24 @@
+GARP 2.5.1 – KEY CUSTODY ATTESTATION / REQUIRED OPERATING MODEL (NO SECRET)
+Application: generator 7.1.24
+
+Release signer role: designated release signer, separate from ordinary CI/build identity where practical
+keyId: production key NOT PROVISIONED/NOT TESTED in this source migration
+Algorithm: Ed25519
+Primary storage class: offline/hardware-backed or otherwise organization-approved signer store; exact secret location must not be documented in repo
+Private key present on school server: NE (requirement)
+Private key present in repo/build/logs: NE (requirement; candidate contains none)
+Recovery backup exists: NOT TESTED
+Recovery storage class: to be defined operationally without secret path/password in repo
+Rotation procedure documented: conceptual requirement below; operational drill NOT TESTED
+Revocation procedure documented: conceptual requirement below; operational drill NOT TESTED
+Recovery/rotation drill date: NOT TESTED
+Release account strong MFA/passkey/hardware key: NOT TESTED
+
+Required rotation/revocation procedure
+1. create new Ed25519 key outside repo/build/server;
+2. publish new public key/keyId in signed/approved trust-root process;
+3. update release registry policy/validity window;
+4. sign only exact verified deployment manifest;
+5. revoke old keyId on compromise/retirement and ensure app guard/integrity service rejects it;
+6. run RISIM revoked-key/unknown-key/rollback tests;
+7. never copy private key into deployment artifact for convenience.
