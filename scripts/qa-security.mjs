@@ -65,7 +65,7 @@ for (const p of files) {
   ];
   for (const secretMatch of secretAssignments) {
     const value = secretMatch[1];
-    const obviousSentinel = /^(?:TEST|INTERNAL|EXAMPLE|DUMMY|FAKE)[_\-]/i.test(
+    const obviousSentinel = /^(?:TEST|INTERNAL|EXAMPLE|DUMMY|FAKE|SYNTHETIC)[_\-]/i.test(
       value,
     );
     const testFixture =
